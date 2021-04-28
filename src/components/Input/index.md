@@ -98,6 +98,27 @@ const InputExample = props => {
 export default InputExample;
 ```
 
+## 文本域
+
+```tsx
+/**
+ * title: 文本域
+ * desc: 用于多行输入。
+ */
+import React from 'react';
+import { Input } from 'viki-ui';
+
+const { TextArea } = Input;
+
+const InputExample = props => {
+  return (
+    <TextArea style={{ width: '640px' }} rows={5} placeholder="Basic usage" />
+  );
+};
+
+export default InputExample;
+```
+
 <br/>
 <br/>
 
@@ -114,3 +135,20 @@ export default InputExample;
 | suffix       | 输入框后缀     | `ReactNode`                                        | `--`    |
 | style        | --             | `CSSProperties`                                    | `--`    |
 | className    | --             | `string`                                           | `--`    |
+
+Input 的其他属性和 React 自带的 [input](https://reactjs.org/docs/dom-elements.html#all-supported-html-attributes) 一致。
+
+### TextArea
+
+| Name         | Description        | Type                                               | Default |
+| ------------ | ------------------ | -------------------------------------------------- | ------- |
+| defaultValue | textarea 默认值    | `string & (string \| number \| readonly string[])` | `--`    |
+| disabled     | 禁用文本域         | `boolean`                                          | `--`    |
+| size         | 文本域尺寸大小     | `"lg" \| "sm"`                                     | `--`    |
+| minlength    | 文本域最小字数限制 | `number`                                           | `--`    |
+| maxLength    | 文本域最大字数限制 | `number`                                           | `--`    |
+| rows         | 文本域行数         | `number`                                           | `--`    |
+| style        | --                 | `CSSProperties`                                    | `--`    |
+| className    | --                 | `string`                                           | `--`    |
+
+`Input.TextArea` 的其他属性和浏览器自带的 [textarea](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/textarea) 一致。

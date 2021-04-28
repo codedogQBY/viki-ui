@@ -2,8 +2,8 @@ import React, { ReactNode, InputHTMLAttributes } from 'react';
 import classNames from 'classnames';
 import { IconProp } from '@fortawesome/fontawesome-svg-core';
 import Icon from '../Icon/Icon';
-
-export interface InputProps {
+import TextArea from './TextArea';
+export interface InputBaseProps {
   /**
    * input默认值
    */
@@ -36,8 +36,12 @@ export interface InputProps {
   className?: string;
 }
 
-const Input: React.FC<InputProps &
-  Omit<InputHTMLAttributes<HTMLElement>, 'size' | 'prefix'>> = props => {
+type InputProps = InputBaseProps &
+  Omit<InputHTMLAttributes<HTMLElement>, 'size' | 'prefix'>;
+
+const Input: React.FC<InputProps> & {
+  TextArea: React.FC;
+} = props => {
   const {
     defaultValue,
     disabled,
@@ -83,5 +87,7 @@ const Input: React.FC<InputProps &
     </>
   );
 };
+
+Input.TextArea = TextArea;
 
 export default Input;
