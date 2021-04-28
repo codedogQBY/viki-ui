@@ -1,0 +1,134 @@
+.viki-input {
+  display: flex;
+  width: 100%;
+  position: relative;
+  input {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    font-weight: $input-font-weight;
+    line-height: $input-line-height;
+    outline: none;
+    padding: $input-padding-y $input-padding-x;
+    font-family: $input-font-family;
+    font-size: $input-font-size;
+    background: $input-bg;
+    color: $input-color;
+    border: $input-border-color $input-border-width solid;
+    box-shadow: $input-box-shadow;
+    border-radius: $input-border-radius;
+    transition: $input-transition;
+    &:focus {
+      background: $input-focus-bg;
+      border: $input-focus-border-color $input-border-width solid;
+      color: $input-focus-color;
+      box-shadow: $input-focus-box-shadow;
+    }
+    &:hover {
+      border: $input-focus-border-color $input-border-width solid;
+    }
+    &::placeholder {
+      color: $input-placeholder-color;
+      opacity: 1;
+    }
+    &:disabled,
+    &[readonly] {
+      background-color: $input-disabled-bg;
+      border-color: $input-disabled-border-color;
+      opacity: 1;
+    }
+  }
+  .viki-input-group-prefix,
+  .viki-input-group-suffix {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: $input-padding-y $input-padding-x;
+    font-family: $input-font-family;
+    font-size: $input-font-size;
+    font-weight: $font-weight-normal;
+    line-height: $input-line-height;
+    color: $input-group-addon-color;
+    text-align: center;
+    white-space: nowrap;
+    background: $input-group-addon-bg;
+    line-height: $input-line-height;
+    border-radius: $input-border-radius;
+    border: $input-group-addon-border-color $input-border-width solid;
+  }
+  .viki-input-group-prefix {
+    border-right: 0;
+  }
+  .viki-input-group-suffix {
+    border-left: 0;
+  }
+}
+
+.viki-input-group > .viki-input-group-prefix,
+.viki-input-group.viki-input-suffix input {
+  @include border-right-radius(0);
+}
+
+.viki-input-group > .viki-input-group-suffix,
+.viki-input-group.viki-input-prefix input {
+  @include border-left-radius(0);
+}
+
+.viki-input-lg {
+  font-size: $input-font-size-lg;
+  .viki-input-group-prefix,
+  .viki-input-group-suffix,
+  input {
+    padding: $input-padding-y-lg $input-padding-x-lg;
+    font-size: $input-font-size-lg;
+  }
+}
+
+.viki-input-sm {
+  .viki-input-group-prefix,
+  .viki-input-group-suffix,
+  input {
+    padding: $input-padding-y-sm $input-padding-x-sm;
+    font-size: $input-font-size-sm;
+  }
+}
+
+.viki-input-Icon {
+  display: inline-flex;
+  align-content: space-around;
+  flex-wrap: nowrap;
+  input {
+    padding-left: $input-preicon-padding-x;
+  }
+  .viki-input-preIcon,
+  .viki-input-sufIcon {
+    display: flex;
+    flex: none;
+    align-items: center;
+  }
+  .viki-input-preIcon {
+    position: absolute;
+    top: 50%;
+    left: 0.5rem;
+    transform: translateY(-50%);
+    z-index: 3;
+  }
+  .viki-input-sufIcon {
+    position: absolute;
+    top: 50%;
+    right: 0.5rem;
+    transform: translateY(-50%);
+    z-index: 3;
+  }
+}
+
+.viki-input-disabled {
+  > input {
+    &:hover {
+      cursor: not-allowed;
+      border: $input-border-color $input-border-width solid;
+    }
+  }
+}

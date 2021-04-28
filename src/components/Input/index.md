@@ -1,0 +1,116 @@
+---
+title: Input
+subtitle: Input 输入框
+nav:
+  title: Components
+  path: /components
+---
+
+# Input 输入框
+
+通过鼠标或键盘输入内容，是最基础的表单域的包装。
+
+# 何时使用
+
+- 需要用户输入表单域内容
+- 提供带图标，前后缀的输入框
+
+## 基本使用
+
+```tsx
+import React from 'react';
+import { Input } from 'viki-ui';
+
+const InputExample = props => {
+  return <Input style={{ width: '320px' }} placeholder="Basic usage" />;
+};
+
+export default InputExample;
+```
+
+## 三种大小
+
+```tsx
+/**
+ * title: 三种大小
+ * desc: \<Input /\> 输入框定义了三种尺寸（大、默认、小）。
+ */
+import React from 'react';
+import { Input } from 'viki-ui';
+
+const InputExample = props => {
+  return (
+    <div style={{ width: '320px' }}>
+      <Input size="lg" placeholder="large size" />
+      <br />
+      <Input placeholder="default size" />
+      <br />
+      <Input size="sm" placeholder="small size" />
+    </div>
+  );
+};
+
+export default InputExample;
+```
+
+## 前置/后置标签
+
+```tsx
+/**
+ * title:  前置/后置标签
+ * desc: 用于配置一些固定组合。
+ */
+import React from 'react';
+import { Input } from 'viki-ui';
+import { Icon } from 'viki-ui';
+
+const InputExample = props => {
+  return (
+    <div style={{ width: '320px' }}>
+      <Input prefix="http://" suffix=".com" defaultValue="mysite" />
+      <br />
+      <Input suffix={<Icon icon="cog" />} defaultValue="mysite" />
+      <br />
+      <Input preIcon="cog" sufIcon="search" defaultValue="mysite" />
+    </div>
+  );
+};
+
+export default InputExample;
+```
+
+## 输入框禁用
+
+```tsx
+/**
+ * title: 输入框禁用
+ * desc: 禁用使用输入框输入内容
+ */
+import React from 'react';
+import { Input } from 'viki-ui';
+
+const InputExample = props => {
+  return (
+    <Input style={{ width: '320px' }} disabled placeholder="Basic usage" />
+  );
+};
+
+export default InputExample;
+```
+
+<br/>
+<br/>
+
+## API
+
+| Name         | Description    | Type                                               | Default |
+| ------------ | -------------- | -------------------------------------------------- | ------- |
+| defaultValue | input 默认值   | `string & (string \| number \| readonly string[])` | `--`    |
+| disabled     | 禁用输入框     | `boolean`                                          | `--`    |
+| size         | 输入框尺寸大小 | `"lg" \| "sm"`                                     | `--`    |
+| preIcon      | 输入框前图标   | `IconProp`                                         | `--`    |
+| sufIcon      | 输入框后图标   | `IconProp`                                         | `--`    |
+| prefix       | 输入框前缀     | `ReactNode`                                        | `--`    |
+| suffix       | 输入框后缀     | `ReactNode`                                        | `--`    |
+| style        | --             | `CSSProperties`                                    | `--`    |
+| className    | --             | `string`                                           | `--`    |

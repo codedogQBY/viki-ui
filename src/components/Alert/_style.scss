@@ -1,0 +1,54 @@
+.viki-alert {
+  position: relative;
+  display: flex;
+  align-items: center;
+  color: $black;
+  font-size: $alert-font-size;
+  line-height: $alert-line-height;
+  word-wrap: break-word;
+  padding: $alert-padding-y $alert-padding-x;
+  font-family: $alert-font-family;
+  font-weight: $alert-font-weight;
+  text-align: start;
+  border-radius: $border-radius;
+  svg {
+    color: $gray-600;
+    text-decoration: none;
+    cursor: pointer;
+    user-select: none;
+    &:hover {
+      color: $gray-700;
+    }
+  }
+}
+.viki-alert-content {
+  flex: 1;
+  min-width: 0;
+}
+.viki-alert-message {
+  display: block;
+}
+.viki-alert-title {
+  font-size: $h6-font-size;
+  font-weight: $font-weight-bold;
+}
+.viki-alert-description {
+  font-size: $font-size-base;
+  line-height: 22px;
+  margin-top: 4px;
+}
+.viki-alert-success {
+  @include alert-style(lighten($success, 50%), lighten($success, 30%));
+}
+
+.viki-alert-error {
+  @include alert-style(lighten($danger, 40%), lighten($danger, 30%));
+}
+
+.viki-alert-info {
+  @include alert-style(lighten($info, 50%), lighten($info, 30%));
+}
+
+.viki-alert-warning {
+  @include alert-style(lighten($warning, 40%), lighten($warning, 30%));
+}

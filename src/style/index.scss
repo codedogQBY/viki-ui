@@ -1,0 +1,42 @@
+// config scss模块化
+@import 'variables';
+
+//layout
+@import 'reboot';
+
+//mixin
+@import 'mixin';
+
+// animation
+@import 'animation';
+
+// button
+
+@import '../components/Button/style';
+
+// alert
+
+@import '../components/Alert/style';
+
+// menu
+
+@import '../components/Menu/style';
+
+// tabs
+
+@import '../components/Tabs/style';
+
+// icon
+@import '../components/Icon/style';
+
+//input
+@import '../components/Input/style';
+
+// //auto-complete
+// @import "../components/AutoComplete/style";
+
+// //upload
+// @import "../components/Upload/style";
+
+// //progress
+// @import "../components/Progress/style";
