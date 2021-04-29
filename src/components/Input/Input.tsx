@@ -3,6 +3,7 @@ import classNames from 'classnames';
 import { IconProp } from '@fortawesome/fontawesome-svg-core';
 import Icon from '../Icon/Icon';
 import TextArea from './TextArea';
+import PassWord from './PassWord';
 export interface InputBaseProps {
   /**
    * input默认值
@@ -36,11 +37,12 @@ export interface InputBaseProps {
   className?: string;
 }
 
-type InputProps = InputBaseProps &
+export type InputProps = InputBaseProps &
   Omit<InputHTMLAttributes<HTMLElement>, 'size' | 'prefix'>;
 
 const Input: React.FC<InputProps> & {
   TextArea: React.FC;
+  PassWord: React.FC;
 } = props => {
   const {
     defaultValue,
@@ -54,7 +56,7 @@ const Input: React.FC<InputProps> & {
     className,
     ...restprops
   } = props;
-  const classes = classNames('viki-input', className, {
+  const classes = classNames('viki-input', {
     [`viki-input-${size}`]: size,
     'viki-input-disabled': disabled,
     'viki-input-group': prefix || suffix,
@@ -64,7 +66,7 @@ const Input: React.FC<InputProps> & {
   });
   return (
     <>
-      <span className={classes} style={style}>
+      <span className={classes}>
         {prefix && <span className="viki-input-group-prefix">{prefix}</span>}
         {preIcon && (
           <span className="viki-input-preIcon">
@@ -76,6 +78,12 @@ const Input: React.FC<InputProps> & {
           {...restprops}
           style={style}
           disabled={disabled}
+          className={classNames(
+            {
+              preIconInput: preIcon,
+            },
+            className,
+          )}
         ></input>
         {sufIcon && (
           <span className="viki-input-sufIcon">
@@ -89,5 +97,6 @@ const Input: React.FC<InputProps> & {
 };
 
 Input.TextArea = TextArea;
+Input.PassWord = PassWord;
 
 export default Input;

@@ -119,6 +119,25 @@ const InputExample = props => {
 export default InputExample;
 ```
 
+## 密码框
+
+```tsx
+/**
+ * title: 密码框
+ * desc: 密码框。
+ */
+import React from 'react';
+import { Input } from 'viki-ui';
+
+const { PassWord } = Input;
+
+const InputExample = props => {
+  return <PassWord style={{ width: '320px' }} placeholder="Password Input" />;
+};
+
+export default InputExample;
+```
+
 <br/>
 <br/>
 
@@ -152,3 +171,10 @@ Input 的其他属性和 React 自带的 [input](https://reactjs.org/docs/dom-el
 | className    | --                 | `string`                                           | `--`    |
 
 `Input.TextArea` 的其他属性和浏览器自带的 [textarea](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/textarea) 一致。
+
+### PassWord
+
+| Name             | Description      | Type                     | Default                                                                      |
+| ---------------- | ---------------- | ------------------------ | ---------------------------------------------------------------------------- |
+| iconRender       | 自定义切换按钮   | `(visible) => ReactNode` | `(visible: boolean) => (<Icon icon={visible ? 'eye' : 'eye-slash'}></Icon>)` |
+| visibilityToggle | 是否显示切换按钮 | `boolean`                | `true`                                                                       |
