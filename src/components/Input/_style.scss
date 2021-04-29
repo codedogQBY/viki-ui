@@ -99,7 +99,7 @@
   display: inline-flex;
   align-content: space-around;
   flex-wrap: nowrap;
-  input {
+  input.preIconInput {
     padding-left: $input-preicon-padding-x;
   }
   .viki-input-preIcon,
