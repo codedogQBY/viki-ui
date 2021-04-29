@@ -50,7 +50,6 @@ const PassWord: React.FC<PassWordProps> = props => {
       <input
         defaultValue={defaultValue}
         {...restprops}
-        style={style}
         disabled={disabled}
         className={className}
         type={visible ? 'password' : 'text'}
