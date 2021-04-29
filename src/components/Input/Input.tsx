@@ -66,7 +66,7 @@ const Input: React.FC<InputProps> & {
   });
   return (
     <>
-      <span className={classes}>
+      <span className={classes} style={style}>
         {prefix && <span className="viki-input-group-prefix">{prefix}</span>}
         {preIcon && (
           <span className="viki-input-preIcon">
@@ -76,7 +76,6 @@ const Input: React.FC<InputProps> & {
         <input
           defaultValue={defaultValue}
           {...restprops}
-          style={style}
           disabled={disabled}
           className={classNames(
             {

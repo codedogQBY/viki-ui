@@ -127,12 +127,31 @@ export default InputExample;
  * desc: 密码框。
  */
 import React from 'react';
-import { Input } from 'viki-ui';
+import { Input, Icon } from 'viki-ui';
 
 const { PassWord } = Input;
 
 const InputExample = props => {
-  return <PassWord style={{ width: '320px' }} placeholder="Password Input" />;
+  return (
+    <>
+      <PassWord
+        style={{ width: '320px', marginBottom: '20px' }}
+        placeholder="Password Input"
+      />
+      <br />
+      <PassWord
+        style={{ width: '320px', marginBottom: '20px' }}
+        iconRender={visible => <Icon icon={visible ? 'lock' : 'lock-open'} />}
+        placeholder="Password Input"
+      />
+      <br />
+      <PassWord
+        style={{ width: '320px' }}
+        visibilityToggle={false}
+        placeholder="Password Input"
+      />
+    </>
+  );
 };
 
 export default InputExample;
