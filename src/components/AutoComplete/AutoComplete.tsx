@@ -55,11 +55,15 @@ export const AutoComplete: FC<AutoCompleteProps> = props => {
   };
   return (
     <div className="viki-auto-complete">
-      <Input value={value} {...restprops} onChange={handleChange} />
+      <Input value={inputValue} {...restprops} onChange={handleChange} />
       {suggestions.length > 0 && generateDropdown()}
     </div>
   );
 };
+AutoComplete.defaultProps = {
+  value: '',
+};
+export default AutoComplete;
 
 // custom option
 // keyborad support

@@ -1,33 +1,34 @@
-import React from 'react'
-import { CSSTransition } from 'react-transition-group'
-import { CSSTransitionProps } from 'react-transition-group/CSSTransition'
+import React from 'react';
+import { CSSTransition } from 'react-transition-group';
+import { CSSTransitionProps } from 'react-transition-group/CSSTransition';
 
 type AnimationName =
   | 'zoom-in-top'
   | 'zoom-in-left'
-  | 'zoom-in-right'
-  | 'zoom-in-buttom'
+  | 'zoom-in-bottom'
+  | 'zoom-in-right';
 
-type TransitionProps = CSSTransitionProps & {
-  //继承CSSTransition的属性
-  animation?: AnimationName //新增加一个字面量属性值
+interface TransitionBaseProps {
+  animation?: AnimationName;
+  wrapper?: boolean;
 }
 
-const Transition: React.FC<TransitionProps> = (props) => {
-  const { children, classNames, animation, ...restprops } = props
+type TransitionProps = CSSTransitionProps & TransitionBaseProps;
+
+const Transition: React.FC<TransitionProps> = props => {
+  const { children, classNames, animation, wrapper, ...restProps } = props;
   return (
     <CSSTransition
       classNames={classNames ? classNames : animation}
-      {...restprops}
+      {...restProps}
     >
-      {children}
+      {wrapper ? <div>{children}</div> : children}
     </CSSTransition>
-  )
-}
-
+  );
+};
 Transition.defaultProps = {
   unmountOnExit: true,
   appear: true,
-}
+};
 
-export default Transition
+export default Transition;

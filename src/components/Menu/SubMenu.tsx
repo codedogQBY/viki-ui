@@ -43,7 +43,7 @@ const SubMenu: React.FC<SubMenuProps> = props => {
   });
   const renderChildren = () => {
     const subMenuClasses = classNames('viki-submenu', {
-      'menu-open': menuOpen,
+      'menu-opened': menuOpen,
     });
     const childrenComponent = React.Children.map(children, (child, i) => {
       const childElement = child as FunctionComponentElement<MenuItemProps>;
