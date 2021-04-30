@@ -5,3 +5,4 @@ export { default as Menu } from './components/Menu/index';
 export { default as Tabs } from './components/Tabs/index';
 export { default as Icon } from './components/Icon/Icon';
 export { default as Input } from './components/Input/Input';
+export { default as AutoComplete } from './components/AutoComplete/AutoComplete';
