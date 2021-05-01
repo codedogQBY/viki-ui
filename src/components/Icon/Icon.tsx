@@ -1,12 +1,12 @@
-import React from 'react'
-import classNames from 'classnames'
+import React from 'react';
+import classNames from 'classnames';
 import {
   FontAwesomeIcon,
   FontAwesomeIconProps,
-} from '@fortawesome/react-fontawesome'
-import { library } from '@fortawesome/fontawesome-svg-core'
-import { fas } from '@fortawesome/free-solid-svg-icons'
-library.add(fas)
+} from '@fortawesome/react-fontawesome';
+import { library } from '@fortawesome/fontawesome-svg-core';
+import { fas } from '@fortawesome/free-solid-svg-icons';
+library.add(fas);
 
 export type ThemeProps =
   | 'primary'
@@ -16,20 +16,24 @@ export type ThemeProps =
   | 'warning'
   | 'error'
   | 'light'
-  | 'dark'
+  | 'dark';
 
 export interface IconProps extends FontAwesomeIconProps {
-  theme?: ThemeProps
-  style?: React.CSSProperties
-  className?: string
+  theme?: ThemeProps;
+  style?: React.CSSProperties;
+  className?: string;
 }
 
-const Icon: React.FC<IconProps> = (props) => {
-  const { style, className, theme, ...restProps } = props
+const Icon: React.FC<IconProps> = props => {
+  const { style, className, theme, ...restProps } = props;
   const classes = classNames('viki-icon', className, {
     [`icon-${theme}`]: theme,
-  })
-  return <FontAwesomeIcon className={classes} {...restProps} />
-}
+  });
+  return (
+    <span className={classes} style={style}>
+      <FontAwesomeIcon {...restProps} />
+    </span>
+  );
+};
 
-export default Icon
+export default Icon;
