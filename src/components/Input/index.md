@@ -1,21 +1,20 @@
 ---
+category: Components
+subtitle: Input
+type: Data entry
 title: Input
-subtitle: Input 输入框
-nav:
-  title: Components
-  path: /components
 ---
 
-# Input 输入框
+# Input
 
-通过鼠标或键盘输入内容，是最基础的表单域的包装。
+Through the mouse or keyboard input content, is the most basic form fields of packing.
 
-# 何时使用
+# When to use
 
-- 需要用户输入表单域内容
-- 提供带图标，前后缀的输入框
+- Requires the user to input form fields
+- Provide with ICONS, former suffix input box
 
-## 基本使用
+## The basic use
 
 ```tsx
 import React from 'react';
@@ -28,12 +27,12 @@ const InputExample = props => {
 export default InputExample;
 ```
 
-## 三种大小
+## Three kinds of size
 
 ```tsx
 /**
- * title: 三种大小
- * desc: \<Input /\> 输入框定义了三种尺寸（大、默认、小）。
+ * title: Three kinds of size
+ * desc: \<Input /\> Input defines three sizes (large, default and small).
  */
 import React from 'react';
 import { Input } from 'viki-ui';
@@ -53,12 +52,12 @@ const InputExample = props => {
 export default InputExample;
 ```
 
-## 前置/后置标签
+## Front/rear label
 
 ```tsx
 /**
- * title:  前置/后置标签
- * desc: 用于配置一些固定组合。
+ * title:  Front/rear label
+ * desc: Used to configure some fixed combinations.
  */
 import React from 'react';
 import { Input } from 'viki-ui';
@@ -79,12 +78,12 @@ const InputExample = props => {
 export default InputExample;
 ```
 
-## 输入框禁用
+## Input is disabled
 
 ```tsx
 /**
- * title: 输入框禁用
- * desc: 禁用使用输入框输入内容
+ * title: Input is disabled
+ * desc: Disable use input box input content
  */
 import React from 'react';
 import { Input } from 'viki-ui';
@@ -98,12 +97,12 @@ const InputExample = props => {
 export default InputExample;
 ```
 
-## 文本域
+## TextArea
 
 ```tsx
 /**
- * title: 文本域
- * desc: 用于多行输入。
+ * title: TextArea
+ * desc: Used for multi-line input.
  */
 import React from 'react';
 import { Input } from 'viki-ui';
@@ -119,12 +118,12 @@ const InputExample = props => {
 export default InputExample;
 ```
 
-## 密码框
+## password
 
 ```tsx
 /**
- * title: 密码框
- * desc: 密码框。
+ * title: password
+ * desc: The password box.
  */
 import React from 'react';
 import { Input, Icon } from 'viki-ui';
@@ -162,38 +161,38 @@ export default InputExample;
 
 ## API
 
-| Name         | Description    | Type                                               | Default |
-| ------------ | -------------- | -------------------------------------------------- | ------- |
-| defaultValue | input 默认值   | `string & (string \| number \| readonly string[])` | `--`    |
-| disabled     | 禁用输入框     | `boolean`                                          | `--`    |
-| size         | 输入框尺寸大小 | `"lg" \| "sm"`                                     | `--`    |
-| preIcon      | 输入框前图标   | `IconProp`                                         | `--`    |
-| sufIcon      | 输入框后图标   | `IconProp`                                         | `--`    |
-| prefix       | 输入框前缀     | `ReactNode`                                        | `--`    |
-| suffix       | 输入框后缀     | `ReactNode`                                        | `--`    |
-| style        | --             | `CSSProperties`                                    | `--`    |
-| className    | --             | `string`                                           | `--`    |
+| Name         | Description               | Type                                               | Default |
+| ------------ | ------------------------- | -------------------------------------------------- | ------- |
+| defaultValue | input default value       | `string & (string \| number \| readonly string[])` | `--`    |
+| disabled     | Disable input box         | `boolean`                                          | `--`    |
+| size         | Input box size            | `"lg" \| "sm"`                                     | `--`    |
+| preIcon      | Before the input box icon | `IconProp`                                         | `--`    |
+| sufIcon      | After the input box icon  | `IconProp`                                         | `--`    |
+| prefix       | Input box prefix          | `ReactNode`                                        | `--`    |
+| suffix       | Input box suffix          | `ReactNode`                                        | `--`    |
+| style        | --                        | `CSSProperties`                                    | `--`    |
+| className    | --                        | `string`                                           | `--`    |
 
-Input 的其他属性和 React 自带的 [input](https://reactjs.org/docs/dom-elements.html#all-supported-html-attributes) 一致。
+Other attributes and Input the React with [Input](https://reactjs.org/docs/dom-elements.html#all-supported-html-attributes).
 
 ### TextArea
 
-| Name         | Description        | Type                                               | Default |
-| ------------ | ------------------ | -------------------------------------------------- | ------- |
-| defaultValue | textarea 默认值    | `string & (string \| number \| readonly string[])` | `--`    |
-| disabled     | 禁用文本域         | `boolean`                                          | `--`    |
-| size         | 文本域尺寸大小     | `"lg" \| "sm"`                                     | `--`    |
-| minlength    | 文本域最小字数限制 | `number`                                           | `--`    |
-| maxLength    | 文本域最大字数限制 | `number`                                           | `--`    |
-| rows         | 文本域行数         | `number`                                           | `--`    |
-| style        | --                 | `CSSProperties`                                    | `--`    |
-| className    | --                 | `string`                                           | `--`    |
+| Name         | Description                              | Type                                               | Default |
+| ------------ | ---------------------------------------- | -------------------------------------------------- | ------- |
+| defaultValue | Textarea default value                   | `string & (string \| number \| readonly string[])` | `--`    |
+| disabled     | Disable the Textarea                     | `boolean`                                          | `--`    |
+| size         | Textarea size                            | `"lg" \| "sm"`                                     | `--`    |
+| minlength    | The minimum length limit to the Textarea | `number`                                           | `--`    |
+| maxLength    | Maximum length limit to the textarea     | `number`                                           | `--`    |
+| rows         | Textarea lines                           | `number`                                           | `--`    |
+| style        | --                                       | `CSSProperties`                                    | `--`    |
+| className    | --                                       | `string`                                           | `--`    |
 
-`Input.TextArea` 的其他属性和浏览器自带的 [textarea](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/textarea) 一致。
+`Input. The TextArea` other attributes and the browser's own [TextArea](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/textarea).
 
 ### PassWord
 
-| Name             | Description      | Type                     | Default                                                                      |
-| ---------------- | ---------------- | ------------------------ | ---------------------------------------------------------------------------- |
-| iconRender       | 自定义切换按钮   | `(visible) => ReactNode` | `(visible: boolean) => (<Icon icon={visible ? 'eye' : 'eye-slash'}></Icon>)` |
-| visibilityToggle | 是否显示切换按钮 | `boolean`                | `true`                                                                       |
+| Name             | Description                       | Type                     | Default                                                                      |
+| ---------------- | --------------------------------- | ------------------------ | ---------------------------------------------------------------------------- |
+| iconRender       | Custom switch button              | `(visible) => ReactNode` | `(visible: boolean) => (<Icon icon={visible ? 'eye' : 'eye-slash'}></Icon>)` |
+| visibilityToggle | Whether the display switch button | `boolean`                | `true`                                                                       |

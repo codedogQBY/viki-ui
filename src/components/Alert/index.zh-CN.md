@@ -1,25 +1,26 @@
 ---
 category: Components
-type: Feedback
+subtitle: 警告提示
+type: 反馈
 title: Alert
 ---
 
-# Alert
+# Alert 警告提示
 
-Alert, will need to pay attention to information.
+警告提示，展现需要关注的信息。
 
-# When to use
+# 何时使用
 
-- displays a warning when a page need to users of information.
+- 当某个页面需要向用户显示警告的信息时。
 
-- a floating layer static representation, showing all the time, will not disappear automatically, the user can click on close.
+- 非浮层的静态展现形式，始终展现，不会自动消失，用户可以点击关闭。
 
-## There are four types
+## 四种类型
 
 ```tsx
 /**
- * title: Four kinds of style
- * desc: Four kinds of style `success`、`info`、`warning`、`error`
+ * title: 四种样式
+ * desc: 共有四种样式 `success`、`info`、`warning`、`error`
  */
 import React from 'react';
 import { Alert } from 'viki-ui';
@@ -41,12 +42,12 @@ const AlertExample = () => {
 export default AlertExample;
 ```
 
-## Alert box containing description
+## 含有描述的警告框
 
 ```tsx
 /**
- * title: Contains descriptive text
- * desc: Contains descriptive text introduction of warning
+ * title: 含有描述性文字介绍
+ * desc: 含有描述性文字介绍的警告提示
  */
 import React from 'react';
 import { Alert } from 'viki-ui';
@@ -88,12 +89,12 @@ const AlertExample = () => {
 export default AlertExample;
 ```
 
-## Warning messages can be closed
+## 可关闭的警告提示
 
 ```tsx
 /**
- * title: Warning messages can be closed
- * desc: Show the close button, click on the warning messages can be closed
+ * title: 可关闭的警告提示
+ * desc: 显示关闭按钮，点击可关闭警告提示
  */
 import React from 'react';
 import { Alert } from 'viki-ui';

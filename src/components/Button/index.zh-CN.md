@@ -1,26 +1,26 @@
 ---
 category: Components
-type: general
+type: 通用
 title: Button
-subtitle: button
+subtitle: 按钮
 ---
 
-# Button
+# Button 按钮
 
-Button to start an immediate operation.
+按钮用于开始一个即时操作。
 
-# When to use
+# 何时使用
 
-Mark a (or encapsulates a set of operation command, response to a user clicks on a behavior, triggering the corresponding business logic.
+标记了一个（或封装一组）操作命令，响应用户点击行为，触发相应的业务逻辑。
 
-## Button type
+## 按钮类型
 
-I have provided in viki - UI four buttons.
+在 viki-ui 中我提供了四种按钮。
 
-- Main button
-- the default button
-- dangerous button
-- the text button
+- 主要按钮
+- 默认按钮
+- 危险按钮
+- 文字按钮
 
 ```tsx
 import React from 'react';
@@ -33,14 +33,14 @@ const ButtonExample = () => {
   return (
     <>
       <Button style={btnStyle} btnType="primary">
-        The main button
+        主要按钮
       </Button>
-      <Button style={btnStyle}>The default button</Button>
+      <Button style={btnStyle}>默认按钮</Button>
       <Button style={btnStyle} btnType="danger">
-        Dangerous button
+        危险按钮
       </Button>
       <Button style={btnStyle} btnType="link" href="https://www.baidu.com">
-        The text button
+        文字按钮
       </Button>
     </>
   );
@@ -49,9 +49,9 @@ const ButtonExample = () => {
 export default ButtonExample;
 ```
 
-## Button size
+## 按钮尺寸
 
-viki-ui There are three main kinds of the size of the button, respectively, in small, default is in
+viki-ui 主要有三种尺寸的按钮，分别对应大，中，小，默认是中
 
 ```tsx
 import React, { useState } from 'react';
@@ -64,13 +64,13 @@ const ButtonExample = () => {
   return (
     <>
       <Button style={btnStyle} btnType="primary" size="lg">
-        Large buttons
+        大按钮
       </Button>
       <Button style={btnStyle} btnType="primary">
-        The default button
+        默认按钮
       </Button>
       <Button style={btnStyle} btnType="primary" size="sm">
-        Small button
+        小按钮
       </Button>
     </>
   );
@@ -79,9 +79,9 @@ const ButtonExample = () => {
 export default ButtonExample;
 ```
 
-## Disabled state
+## 禁用状态
 
-Add `disabled` attributes can let button is unavailable, also will change the button style。
+添加 `disabled` 属性即可让按钮处于不可用状态，同时按钮样式也会改变。
 
 ```tsx
 import React from 'react';
@@ -91,7 +91,7 @@ const ButtonExample = () => {
   return (
     <>
       <Button disabled btnType="primary">
-        The default button
+        默认按钮
       </Button>
     </>
   );

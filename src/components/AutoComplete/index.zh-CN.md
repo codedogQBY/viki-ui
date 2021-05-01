@@ -1,17 +1,19 @@
 ---
 category: Components
-type: Data Entry
+subtitle: 自动完成
+type: 数据录入
 cols: 2
 title: Auto-complete
 ---
 
-Autocomplete function of input field.
+输入框自动完成功能。
 
-## When To Use
+## 何时使用
 
-When there is a need for autocomplete functionality.
+- 需要一个输入框而不是选择器。
+- 需要输入建议/辅助提示。
 
-## Based on using
+## 基础使用
 
 ```tsx
 import React from 'react';
@@ -39,7 +41,7 @@ const AutoCompleteExample = () => {
   };
   return (
     <>
-      <AutoComplete fetchSugestion={handleFetch} />
+      <AutoComplete style={{ width: '320px' }} fetchSugestion={handleFetch} />
     </>
   );
 };
@@ -47,7 +49,7 @@ const AutoCompleteExample = () => {
 export default AutoCompleteExample;
 ```
 
-## An asynchronous request
+## 异步请求
 
 ```tsx
 import React from 'react';
@@ -70,17 +72,29 @@ const AutoCompleteExample = () => {
   const renderOption = item => {
     return (
       <span>
-        <span>{item.name}</span>
+        <span>{`${item.artists && item.artists[0].name}`}</span>
         <span>{item.name}</span>
       </span>
     );
   };
   return (
     <>
-      <AutoComplete fetchSugestion={handleFetch} renderOption={renderOption} />
+      <AutoComplete
+        style={{ width: '320px' }}
+        fetchSugestion={handleFetch}
+        renderOption={renderOption}
+      />
     </>
   );
 };
 
 export default AutoCompleteExample;
 ```
+
+| 属性名          | 描述       | 类型                                                                 | 默认值 |
+| --------------- | ---------- | -------------------------------------------------------------------- | ------ |
+| fetchSuggestion | 建议数据   | `(keyword: string,) => DataSourceType[] | Promise<DataSourceType[]>` | `--`   |
+| onSelect        | 选择事件   | `(item: DataSourceType) => void`                                     | `--`   |
+| renderOption    | 自定义模板 | `(item: DataSourceType) => ReactElement`                             | `--`   |
+
+Input 的其他属性和 Input 组件一致。

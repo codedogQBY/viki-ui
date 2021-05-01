@@ -1,11 +1,11 @@
 ---
-title: viki-ui - Imitate innovative component library
+title: viki-ui - 模仿创新型组件库
 order: 10
 hero:
   title: viki-ui
-  desc: 📖 A reference antd simple UI librar
+  desc: 📖 一个参考antd的简陋ui库
   actions:
-    - text: Quick learning
+    - text: 快速上手
       link: /components
 features:
   - icon: https://gw.alipayobjects.com/zos/bmw-prod/881dc458-f20b-407b-947a-95104b5ec82b/k79dm8ih_w144_h144.png
