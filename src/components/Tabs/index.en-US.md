@@ -102,9 +102,9 @@ const TabsExample = () => {
 
   return (
     <>
-      <Button onClick={() => changePosition('start')}>偏左</Button>
-      <Button onClick={() => changePosition('center')}>居中</Button>
-      <Button onClick={() => changePosition('end')}>偏右</Button>
+      <Button onClick={() => changePosition('start')}>Left</Button>
+      <Button onClick={() => changePosition('center')}>Middle</Button>
+      <Button onClick={() => changePosition('end')}>Right</Button>
       <Tabs defaultKey="1" tabsPosition={position}>
         <TabPane tab="Tab 1" key="1">
           Content of Tab Pane 1
@@ -197,9 +197,9 @@ const TabsExample = () => {
 
   return (
     <>
-      <Button onClick={() => changeSize('large')}>大</Button>
-      <Button onClick={() => changeSize('defalut')}>中</Button>
-      <Button onClick={() => changeSize('small')}>小</Button>
+      <Button onClick={() => changeSize('large')}>Large</Button>
+      <Button onClick={() => changeSize('defalut')}>Defalut</Button>
+      <Button onClick={() => changeSize('small')}>Small</Button>
       <Tabs defaultKey="1" size={size}>
         <TabPane tab="Tab 1" key="1">
           Content of Tab Pane 1

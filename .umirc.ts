@@ -12,4 +12,8 @@ export default defineConfig({
   sass: {
     implementation: require('node-sass'),
   },
+  locales: [
+    ['zh-CN', '中文'],
+    ['en-US', 'English'],
+  ],
 });

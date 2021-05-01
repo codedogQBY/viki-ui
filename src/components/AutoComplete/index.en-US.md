@@ -67,20 +67,22 @@ const AutoCompleteExample = () => {
       });
   };
 
-  const renderOption = item => {
-    return (
-      <span>
-        <span>{item.name}</span>
-        <span>{item.name}</span>
-      </span>
-    );
-  };
   return (
     <>
-      <AutoComplete fetchSugestion={handleFetch} renderOption={renderOption} />
+      <AutoComplete style={{ width: '320px' }} fetchSuggestion={handleFetch} />
     </>
   );
 };
 
 export default AutoCompleteExample;
 ```
+
+## API
+
+| Name            | Description      | Type                                                                 | Default |
+| --------------- | ---------------- | -------------------------------------------------------------------- | ------- |
+| fetchSuggestion | Recommended data | `(keyword: string,) => DataSourceType[] | Promise<DataSourceType[]>` | `--`    |
+| onSelect        | Select events    | `(item: DataSourceType) => void`                                     | `--`    |
+| renderOption    | Custom templates | `(item: DataSourceType) => ReactElement`                             | `--`    |
+
+Other attribute of the AutoComplete and the Input component.
