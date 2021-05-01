@@ -1,27 +1,27 @@
 ---
 category: Components
-subtitle: Tabs
-type: The data show
+subtitle: 标签页
+type: 数据展示
 title: Tabs
 cols: 1
 ---
 
-# Tabs
+# Tabs 标签页
 
-TAB to switch components.
+选项卡切换组件。
 
-# When to use
+# 何时使用
 
-Provide level area will receive large content and show, maintain a clean and tidy interface.
+提供平级的区域将大块内容进行收纳和展现，保持界面整洁。
 
-# Code demo
+# 代码演示
 
-## basic
+## 基本
 
 ```tsx
 /**
- * title: basic
- * desc: Selected by default the first item
+ * title: 基本
+ * desc: 默认选中第一项
  */
 import React from 'react';
 import { Tabs } from 'viki-ui';
@@ -49,12 +49,12 @@ const TabsExample = () => {
 export default TabsExample;
 ```
 
-## disable
+## 禁用
 
 ```tsx
 /**
- * title: disable
- * desc: Disable one
+ * title: 禁用
+ * desc: 禁用某一项
  */
 import React from 'react';
 import { Tabs } from 'viki-ui';
@@ -82,12 +82,12 @@ const TabsExample = () => {
 export default TabsExample;
 ```
 
-## location
+## 位置
 
 ```tsx
 /**
- * title: location
- * desc: Control the location of the navigation bar
+ * title: 位置
+ * desc: 控制导航栏的位置
  */
 import React, { useState } from 'react';
 import { Tabs } from 'viki-ui';
@@ -122,12 +122,12 @@ const TabsExample = () => {
 export default TabsExample;
 ```
 
-## The direction of
+## 方向
 
 ```tsx
 /**
- * title: The direction of
- * desc: Control the direction of the navigation bar at the top
+ * title: 方向
+ * desc: 控制顶部导航栏的方向
  */
 import React, { useState } from 'react';
 import { Tabs } from 'viki-ui';
@@ -147,18 +147,18 @@ const TabsExample = () => {
   return (
     <>
       <div>
-        <h4>Location button</h4>
-        <Button onClick={() => changePosition('start')}>Left</Button>
-        <Button onClick={() => changePosition('center')}>Middle</Button>
-        <Button onClick={() => changePosition('end')}>Right</Button>
+        <h4>位置按钮</h4>
+        <Button onClick={() => changePosition('start')}>偏左</Button>
+        <Button onClick={() => changePosition('center')}>居中</Button>
+        <Button onClick={() => changePosition('end')}>偏右</Button>
       </div>
       <div>
-        <h4>The direction button</h4>
+        <h4>方向按钮</h4>
 
-        <Button onClick={() => changeDirection('top')}>top</Button>
-        <Button onClick={() => changeDirection('buttom')}>bottom</Button>
-        <Button onClick={() => changeDirection('left')}>left</Button>
-        <Button onClick={() => changeDirection('right')}>right</Button>
+        <Button onClick={() => changeDirection('top')}>顶部</Button>
+        <Button onClick={() => changeDirection('buttom')}>底部</Button>
+        <Button onClick={() => changeDirection('left')}>左边</Button>
+        <Button onClick={() => changeDirection('right')}>右边</Button>
       </div>
       <Tabs defaultKey="1" tabsPosition={position} tabsDirection={direction}>
         <TabPane tab="Tab 1" key="1">
@@ -177,12 +177,12 @@ const TabsExample = () => {
 export default TabsExample;
 ```
 
-## The size of the
+## 大小
 
 ```tsx
 /**
- * title: The size of the
- * desc: Large TAB in the header area, the trumpet in the pop-up box with narrow container.
+ * title: 大小
+ * desc: 大号页签用在页头区域，小号用在弹出框等较狭窄的容器内。
  */
 import React, { useState } from 'react';
 import { Tabs } from 'viki-ui';
@@ -217,12 +217,12 @@ const TabsExample = () => {
 export default TabsExample;
 ```
 
-## Card TAB.
+## 卡片式页签
 
 ```tsx
 /**
- * title: Card TAB.
- * desc: Another kind of style of the TAB, do not provide the corresponding vertical style..
+ * title: 卡片式页签
+ * desc: 另一种样式的页签，不提供对应的垂直样式。。
  */
 import React, { useState } from 'react';
 import { Tabs } from 'viki-ui';

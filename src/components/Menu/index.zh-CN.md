@@ -1,25 +1,27 @@
 ---
 category: Components
 cols: 1
-type: navigation
+type: 导航
 title: Menu
-subtitle: Menu
+subtitle: 导航菜单
 ---
 
-# Menu
+# Menu 导航菜单
 
-Provide navigation menu list page and function.
+为页面和功能提供导航的菜单列表。
 
-# When to use
+# 何时使用
 
-Navigation menu is the soul of a web site, users rely on navigation on every page jump.General component is at the top of the navigation and side navigation and top navigation provides the category and function of overall importance, the side navigation provides multi-level structure to receive and arrange site architecture.
+导航菜单是一个网站的灵魂，用户依赖导航在各个页面中进行跳转。一般分为顶部导航和侧边导航，顶部导航提供全局性的类目和功能，侧边导航提供多级结构来收纳和排列网站架构。
 
-## At the top of the navigation
+# 代码演示
+
+## 顶部导航
 
 ```tsx
 /**
- * title: At the top of the navigation
- * desc: Level at the top of the navigation menu.
+ * title: 顶部导航
+ * desc: 水平的顶部导航菜单。
  */
 import React from 'react';
 import { Menu } from 'viki-ui';
@@ -36,9 +38,9 @@ const MenuExample = () => {
     >
       <MenuItem>cool link</MenuItem>
       <MenuItem disabled>cool link 2</MenuItem>
-      <SubMenu title="drop down options">
-        <MenuItem>The drop-down options 1</MenuItem>
-        <MenuItem>The drop-down option 2</MenuItem>
+      <SubMenu title="点击下拉选项">
+        <MenuItem>下拉选项一</MenuItem>
+        <MenuItem>下拉选项二</MenuItem>
       </SubMenu>
       <MenuItem>cool link 3</MenuItem>
     </Menu>
@@ -47,12 +49,12 @@ const MenuExample = () => {
 export default MenuExample;
 ```
 
-## SubMenu
+## 内嵌菜单
 
 ```tsx
 /**
- * title: SubMenu
- * desc: Vertical menu, submenu are embedded in the menu area.
+ * title: 内嵌菜单
+ * desc: 垂直菜单，子菜单内嵌在菜单区域。
  */
 import React from 'react';
 import { Menu } from 'viki-ui';
