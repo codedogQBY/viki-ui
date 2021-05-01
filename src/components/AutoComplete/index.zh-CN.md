@@ -69,21 +69,9 @@ const AutoCompleteExample = () => {
       });
   };
 
-  const renderOption = item => {
-    return (
-      <span>
-        <span>{`${item.artists && item.artists[0].name}`}</span>
-        <span>{item.name}</span>
-      </span>
-    );
-  };
   return (
     <>
-      <AutoComplete
-        style={{ width: '320px' }}
-        fetchSugestion={handleFetch}
-        renderOption={renderOption}
-      />
+      <AutoComplete style={{ width: '320px' }} fetchSuggestion={handleFetch} />
     </>
   );
 };
@@ -91,10 +79,12 @@ const AutoCompleteExample = () => {
 export default AutoCompleteExample;
 ```
 
+## API
+
 | 属性名          | 描述       | 类型                                                                 | 默认值 |
 | --------------- | ---------- | -------------------------------------------------------------------- | ------ |
 | fetchSuggestion | 建议数据   | `(keyword: string,) => DataSourceType[] | Promise<DataSourceType[]>` | `--`   |
 | onSelect        | 选择事件   | `(item: DataSourceType) => void`                                     | `--`   |
 | renderOption    | 自定义模板 | `(item: DataSourceType) => ReactElement`                             | `--`   |
 
-Input 的其他属性和 Input 组件一致。
+AutoComplete 的其他属性和 Input 组件一致。
