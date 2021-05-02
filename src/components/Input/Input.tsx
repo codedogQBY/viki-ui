@@ -38,7 +38,7 @@ export interface InputBaseProps {
 }
 
 export type InputProps = InputBaseProps &
-  Omit<InputHTMLAttributes<HTMLElement>, 'size' | 'prefix'>;
+  Omit<InputHTMLAttributes<HTMLInputElement>, 'size' | 'prefix'>;
 
 const Input: React.FC<InputProps> & {
   TextArea: React.FC;
@@ -56,7 +56,7 @@ const Input: React.FC<InputProps> & {
     className,
     ...restprops
   } = props;
-  const classes = classNames('viki-input', {
+  const classes = classNames('viki-input', className, {
     [`viki-input-${size}`]: size,
     'viki-input-disabled': disabled,
     'viki-input-group': prefix || suffix,
@@ -77,12 +77,9 @@ const Input: React.FC<InputProps> & {
           defaultValue={defaultValue}
           {...restprops}
           disabled={disabled}
-          className={classNames(
-            {
-              preIconInput: preIcon,
-            },
-            className,
-          )}
+          className={classNames({
+            preIconInput: preIcon,
+          })}
         ></input>
         {sufIcon && (
           <span className="viki-input-sufIcon">

@@ -1,0 +1,43 @@
+.icon-search {
+  margin-bottom: 20px;
+}
+.allIcons {
+  display: flex;
+  flex-wrap: wrap;
+  background: rgb(247, 245, 245);
+  padding: 20px;
+  .show-iocn-box {
+    display: flex;
+    width: calc(100% / 9);
+    flex-wrap: wrap;
+    text-align: center;
+    margin-bottom: 20px;
+    .show-icon {
+      width: 100%;
+      padding: 10px;
+    }
+    .show-icon-name {
+      width: 100%;
+      font-size: 14px;
+      user-select: none;
+      color: rgb(131, 130, 130);
+      &:hover {
+        color: #000;
+      }
+    }
+    &:hover {
+      cursor: pointer;
+      .show-icon {
+        color: white;
+        background: #0d6efd;
+        border-top-left-radius: 5px;
+        border-top-right-radius: 5px;
+      }
+      .show-icon-name {
+        background: white;
+        border-bottom-left-radius: 5px;
+        border-bottom-right-radius: 5px;
+      }
+    }
+  }
+}
