@@ -5,7 +5,7 @@ type: 通用
 title: Icon
 ---
 
-# Input 图标
+# Icon 图标
 
 在一些输入框，按钮等一些地方用到会图标，图标很方便我们修改大小和颜色。
 viki-ui 使用的是 fontawesome 的线性图标
@@ -130,10 +130,6 @@ const IconExample = props => {
 export default IconExample;
 ```
 
-<br/>
-
-更多图标请查看[fontawesome](https://fontawesome.com/icons?d=gallery&p=2&q=spind&s=solid&m=free)
-
 ## API
 
 | 属性名    | 描述     | 类型                                                                                                    | 默认值  |
@@ -145,3 +141,7 @@ export default IconExample;
 | rotation  | 旋转角度 | `90 \| 180 \| 270`                                                                                      | `--`    |
 | style     | --       | `CSSProperties`                                                                                         | `--`    |
 | className | --       | `string`                                                                                                | `--`    |
+
+## 全部图标
+
+<code src='./icons/showAllIcons.tsx'></code>

@@ -222,7 +222,7 @@ export default TabsExample;
 ```tsx
 /**
  * title: 卡片式页签
- * desc: 另一种样式的页签，不提供对应的垂直样式。。
+ * desc: 另一种样式的页签，不提供对应的垂直样式。
  */
 import React, { useState } from 'react';
 import { Tabs } from 'viki-ui';

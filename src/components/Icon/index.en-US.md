@@ -131,7 +131,7 @@ export default IconExample;
 
 <br/>
 
-More ICONS please see [fontawesome] (HTTP: / / https://fontawesome.com/icons?D = gallery&p = 2 & q = spind&s = solid&m = free)
+More ICONS please see [fontawesome](https://fontawesome.com/icons?d=gallery&p=2&s=solid&m=free)
 
 ## API
 
@@ -144,3 +144,7 @@ More ICONS please see [fontawesome] (HTTP: / / https://fontawesome.com/icons?D =
 | rotation  | Rotation Angle       | `90 \| 180 \| 270`                                                                                      | `--`    |
 | style     | --                   | `CSSProperties`                                                                                         | `--`    |
 | className | --                   | `string`                                                                                                | `--`    |
+
+## All the ICONS
+
+<code src='./icons/showAllIcons.tsx'></code>

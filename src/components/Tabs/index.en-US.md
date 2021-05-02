@@ -222,7 +222,7 @@ export default TabsExample;
 ```tsx
 /**
  * title: Card TAB.
- * desc: Another kind of style of the TAB, do not provide the corresponding vertical style..
+ * desc: Another kind of style of the TAB, do not provide the corresponding vertical style.
  */
 import React, { useState } from 'react';
 import { Tabs } from 'viki-ui';
