@@ -2,7 +2,7 @@
 title: viki-ui - 模仿创新型组件库
 order: 10
 hero:
-  title: viki-ui
+  title: viki-ui 测试自动化部署
   desc: 📖 一个参考antd的简陋ui库
   actions:
     - text: 快速上手
