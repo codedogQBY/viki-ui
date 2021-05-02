@@ -3,7 +3,7 @@ title: viki-ui - 模仿创新型组件库
 order: 10
 hero:
   title: viki-ui
-  desc: 📖 一个参考antd的简陋ui库
+  desc: 📖 一个参考antd的ui库
   actions:
     - text: 快速上手
       link: /components
