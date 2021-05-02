@@ -2,7 +2,7 @@
 title: viki-ui - Imitate innovative component library
 order: 10
 hero:
-  title: viki-ui test
+  title: viki-ui
   desc: 📖 A reference antd simple UI librar
   actions:
     - text: Quick learning
