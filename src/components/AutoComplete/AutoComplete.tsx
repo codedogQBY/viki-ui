@@ -61,6 +61,7 @@ export const AutoComplete: FC<AutoCompleteProps> = props => {
     if (debounceValue && triggerSearch.current) {
       const result = fetchSuggestion(debounceValue);
       if (result instanceof Promise) {
+        setSuggestions([]);
         setLoading(true);
         result.then(data => {
           setSuggestions(data);
