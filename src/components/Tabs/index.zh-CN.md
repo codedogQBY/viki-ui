@@ -130,8 +130,7 @@ export default TabsExample;
  * desc: 控制顶部导航栏的方向
  */
 import React, { useState } from 'react';
-import { Tabs } from 'viki-ui';
-import { Button } from 'viki-ui';
+import { Tabs, Button } from 'viki-ui';
 const { TabPane } = Tabs;
 
 const TabsExample = () => {
