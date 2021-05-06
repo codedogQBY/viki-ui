@@ -36,7 +36,7 @@ const PassWord: React.FC<PassWordProps> = props => {
 
     setVisible(!visible);
   };
-  const classes = classNames('viki-input', {
+  const classes = classNames('viki-input', className, {
     [`viki-input-${size}`]: size,
     'viki-input-disabled': disabled,
     'viki-input-group': prefix || suffix,
@@ -51,7 +51,7 @@ const PassWord: React.FC<PassWordProps> = props => {
         defaultValue={defaultValue}
         {...restprops}
         disabled={disabled}
-        className={className}
+        className="vike-password-input"
         type={visible ? 'password' : 'text'}
       ></input>
       {visibilityToggle && (

@@ -77,7 +77,7 @@ const Input: React.FC<InputProps> & {
           defaultValue={defaultValue}
           {...restprops}
           disabled={disabled}
-          className={classNames({
+          className={classNames('viki-input-box', {
             preIconInput: preIcon,
           })}
         ></input>
