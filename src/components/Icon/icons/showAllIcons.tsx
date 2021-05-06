@@ -29,11 +29,10 @@ const showAllIcons = () => {
   return (
     <>
       <Input
-        style={{ width: '640px' }}
         placeholder="请输入图标名称"
         className="icon-search"
         sufIcon="search"
-        onChange={e => handleChange(e)}
+        onChange={e => handleChange(e as React.ChangeEvent<HTMLInputElement>)}
       />
       <div className="allIcons">
         {iconArray.map(item => {
