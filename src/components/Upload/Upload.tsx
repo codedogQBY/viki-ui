@@ -75,10 +75,12 @@ export interface UploadProps {
   onRemove?: (file: UploadFile) => boolean | Promise<File>;
 }
 
-const Upload: React.FC<UploadProps> = props => {
+const Upload: React.FC<UploadProps &
+  React.HTMLProps<HTMLLIElement>> = props => {
   const {
     defaultFileList,
     action,
+    style,
     beforeUpload,
     onProgress,
     onError,
@@ -197,7 +199,7 @@ const Upload: React.FC<UploadProps> = props => {
       });
   };
   return (
-    <div className="viki-upload-component">
+    <div className="viki-upload-component" style={style}>
       <Button btnType="primary" onClick={handleClick}>
         上传
       </Button>

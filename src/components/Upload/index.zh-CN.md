@@ -64,6 +64,7 @@ const UploadExample = () => {
   ];
   return (
     <Upload
+      style={{ width: '300px' }}
       defaultFileList={defaultFileList}
       action="https://jsonplaceholder.typicode.com/posts/"
     />
