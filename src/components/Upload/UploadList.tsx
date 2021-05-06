@@ -33,7 +33,6 @@ const UploadList: FC<UploadListProps> = props => {
             <span className="file-actions">
               <Icon
                 icon="trash-alt"
-                theme="info"
                 onClick={() => {
                   onRemove(item);
                 }}
