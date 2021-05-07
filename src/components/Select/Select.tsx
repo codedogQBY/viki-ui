@@ -4,7 +4,7 @@ import Icon from '../Icon/Icon';
 import Input from '../Input/Input';
 import Transition from '../Transition/Transition';
 import useClickOutsize from '../../hooks/useClickOutside';
-
+import Option, { SelectOptionProps } from './Option';
 export interface SelectProps {
   /**
    * 默认值
@@ -44,7 +44,13 @@ export interface SelectProps {
   children?: React.ReactElement;
 }
 
-const Select: FC<SelectProps> = props => {
+export interface ISelectContext {
+  onChange?: (selectedValue: string, selectedValues: string[]) => void;
+}
+export const SelectContext = createContext<ISelectContext>({});
+const Select: FC<SelectProps> & {
+  Option: React.FC<SelectOptionProps>;
+} = props => {
   const {
     defaultValue,
     placeholder,
@@ -58,11 +64,31 @@ const Select: FC<SelectProps> = props => {
     style,
     children,
   } = props;
+
   const [isOpen, setIsOpen] = useState<boolean>(defaultOpen || false);
   const classes = classNames('viki-select', className, {});
   const [selectValue, setSelectValue] = useState<string>(
     defaultValue as string,
   );
+  const passedContext: ISelectContext = {
+    onChange,
+  };
+  const renderChildren = () => {
+    return React.Children.map(children, (child, i) => {
+      const childElement = child as React.FunctionComponentElement<
+        SelectOptionProps
+      >;
+      const { displayName } = childElement.type;
+      // child只允许是Option组件
+      if (displayName === 'Option') {
+        return React.cloneElement(childElement);
+      } else {
+        console.error(
+          'Waring: Select has a child which is not a Option component',
+        );
+      }
+    });
+  };
   return (
     <div className={classes} style={style}>
       <Input
@@ -72,13 +98,20 @@ const Select: FC<SelectProps> = props => {
         size={size}
         readOnly
         onFocus={() => setIsOpen(!isOpen)}
+        placeholder={placeholder}
       />
       <ul
-        style={{ display: isOpen ? 'none' : 'inline-block' }}
+        style={{ display: isOpen ? 'inline-block' : 'none' }}
         className="viki-select-dropdown"
       >
-        {children}
+        <SelectContext.Provider value={passedContext}>
+          {renderChildren()}
+        </SelectContext.Provider>
       </ul>
     </div>
   );
 };
+
+Select.Option = Option;
+
+export default Select;
