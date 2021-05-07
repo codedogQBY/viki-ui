@@ -14,42 +14,12 @@ const ProgressExample = () => {
   return (
     <>
       <Progress strokeHidth={15} percent={30} style={{ width: '320px' }} />
-      <Progress
-        strokeHidth={15}
-        percent={40}
-        theme="secondary"
-        style={{ width: '320px' }}
-      />
-      <Progress
-        strokeHidth={15}
-        percent={50}
-        theme="success"
-        style={{ width: '320px' }}
-      />
-      <Progress
-        strokeHidth={15}
-        percent={60}
-        theme="info"
-        style={{ width: '320px' }}
-      />
-      <Progress
-        strokeHidth={15}
-        percent={70}
-        theme="warning"
-        style={{ width: '320px' }}
-      />
-      <Progress
-        strokeHidth={15}
-        percent={80}
-        theme="error"
-        style={{ width: '320px' }}
-      />
-      <Progress
-        strokeHidth={15}
-        percent={100}
-        theme="dark"
-        style={{ width: '320px' }}
-      />
+      <Progress percent={40} theme="secondary" style={{ width: '320px' }} />
+      <Progress percent={50} theme="success" style={{ width: '320px' }} />
+      <Progress percent={60} theme="info" style={{ width: '320px' }} />
+      <Progress percent={70} theme="warning" style={{ width: '320px' }} />
+      <Progress percent={80} theme="error" style={{ width: '320px' }} />
+      <Progress percent={100} theme="dark" style={{ width: '320px' }} />
     </>
   );
 };

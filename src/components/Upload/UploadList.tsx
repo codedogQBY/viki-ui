@@ -1,6 +1,8 @@
 import React, { FC, useRef } from 'react';
 import { UploadFile } from './Upload';
-import Icon from '../Icon/Icon';
+import Icon, { ThemeProps } from '../Icon/Icon';
+import { IconName } from '../Icon/icons/allIcons';
+import Progress from '../Progress/Progress';
 
 interface UploadListProps {
   fileList: UploadFile[];
@@ -9,6 +11,11 @@ interface UploadListProps {
 
 const UploadList: FC<UploadListProps> = props => {
   const { fileList, onRemove } = props;
+  const statusMap = new Map<string, { theme: ThemeProps; icon: IconName }>();
+  statusMap.set('ready', { theme: 'warning', icon: 'paper-plane' });
+  statusMap.set('uploading', { theme: 'primary', icon: 'spinner' });
+  statusMap.set('success', { theme: 'success', icon: 'check-circle' });
+  statusMap.set('fail', { theme: 'error', icon: 'times-circle' });
 
   return (
     <ul className="viki-upload-list">
@@ -16,19 +23,15 @@ const UploadList: FC<UploadListProps> = props => {
         return (
           <li className="viki-upload-list-item" key={item.uid}>
             <span className={`file-name file-name-${item.status}`}>
-              <Icon icon="file-alt" />
+              <Icon icon="paperclip" />
               {item.name}
             </span>
             <span className="file-status">
-              {item.status === 'uploading' && (
-                <Icon icon="spinner" spin theme="primary" />
-              )}
-              {item.status === 'success' && (
-                <Icon icon="check-circle" theme="success" />
-              )}
-              {item.status === 'fail' && (
-                <Icon icon="times-circle" theme="error" />
-              )}
+              <Icon
+                icon={statusMap.get(item.status!)!['icon'] as IconName}
+                spin={item.status === 'uploading'}
+                theme={statusMap.get(item.status!)!['theme'] as ThemeProps}
+              />
             </span>
             <span className="file-actions">
               <Icon
@@ -38,6 +41,14 @@ const UploadList: FC<UploadListProps> = props => {
                 }}
               />
             </span>
+            {item.status === 'uploading' && (
+              <Progress
+                strokeHidth={4}
+                percent={item.percent || 0}
+                theme={statusMap.get(item.status!)!['theme'] as ThemeProps}
+                textOutsize
+              />
+            )}
           </li>
         );
       })}
