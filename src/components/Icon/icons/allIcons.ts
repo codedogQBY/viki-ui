@@ -1,5 +1,3 @@
-import { IconProps } from '../Icon';
-
 export type IconName =
   | '500px'
   | 'accessible-icon'

@@ -46,7 +46,7 @@ export interface ProgressProps {
 const Progress: FC<ProgressProps & HTMLProps<HTMLElement>> = props => {
   const {
     percent,
-    strokeHidth = 8,
+    strokeHidth,
     showText = true,
     theme = 'primary',
     color,
@@ -100,12 +100,16 @@ const Progress: FC<ProgressProps & HTMLProps<HTMLElement>> = props => {
       setBgColor(getLevelColor());
     }
     if (typeof color === 'function') {
-      setBgColor(color(percent));
+      const colorFun = color as Function;
+      setBgColor(colorFun(percent));
     }
   };
   return (
     <div className="viki-progress-bar" style={style}>
-      <div className="viki-progress-bar-outer" style={{ height: strokeHidth }}>
+      <div
+        className="viki-progress-bar-outer"
+        style={{ height: strokeHidth || (textOutsize ? '8px' : '15px') }}
+      >
         <div
           className={`viki-progress-bar-inner progress-color-${theme}`}
           style={{ width: `${percent}%`, backgroundColor: bgColor }}

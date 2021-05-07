@@ -1,6 +1,6 @@
 ```tsx
 import React, { useState } from 'react';
-import { Upload } from 'viki-ui';
+import { Upload,Button } from 'viki-ui';
 
 const UploadExample = () => {
   const handleTest = (file: File) => {
@@ -10,10 +10,10 @@ const UploadExample = () => {
     }
     return true;
   };
-  const handleTest2 = (file: File) => {
-    const newFile = new File([file], 'new_name', { type: file.type });
-    return Promise.resolve(newFile);
-  };
+  // const handleTest2 = (file: File) => {
+  //   const newFile = new File([file], 'new_name', { type: file.type });
+  //   return Promise.resolve(newFile);
+  // };
   return (
     <Upload
       action="https://jsonplaceholder.typicode.com/posts/"
@@ -29,8 +29,10 @@ const UploadExample = () => {
       onChange={() => {
         console.log('文件状态改变');
       }}
-      beforeUpload={handleTest2}
-    />
+      // beforeUpload={handleTest2}
+    >
+      <Button btnType="primary">上传</Button>
+    </Upload>
   );
 };
 
@@ -39,7 +41,7 @@ export default UploadExample;
 
 ```tsx
 import React, { useState } from 'react';
-import { Upload } from 'viki-ui';
+import { Upload,Button } from 'viki-ui';
 
 const UploadExample = () => {
   const defaultFileList = [
@@ -47,18 +49,21 @@ const UploadExample = () => {
       uid: '1',
       name: 'xxx.png',
       status: 'uploading',
+      percent: 66.6,
       url: 'http://www.baidu.com/xxx.png',
     },
     {
       uid: '2',
       name: 'yyy.png',
       status: 'success',
+      percent: 100,
       url: 'http://www.baidu.com/yyy.png',
     },
     {
       uid: '3',
       name: 'zzz.png',
       status: 'fail',
+      percent: 30,
       url: 'http://www.baidu.com/zzz.png',
     },
   ];
@@ -67,7 +72,9 @@ const UploadExample = () => {
       style={{ width: '300px' }}
       defaultFileList={defaultFileList}
       action="https://jsonplaceholder.typicode.com/posts/"
-    />
+    >
+      <Button btnType="primary">上传</Button>
+    </Upload>
   );
 };
 
