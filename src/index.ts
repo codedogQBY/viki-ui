@@ -7,3 +7,4 @@ export { default as Icon } from './components/Icon/Icon';
 export { default as Input } from './components/Input/Input';
 export { default as AutoComplete } from './components/AutoComplete/AutoComplete';
 export { default as Upload } from './components/Upload/Upload';
+export { default as Progress } from './components/Progress/Progress';
