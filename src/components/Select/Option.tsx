@@ -1,11 +1,12 @@
-import React, { FC } from 'react';
+import React, { FC, useContext } from 'react';
 import classNames from 'classnames';
+import { SelectContext } from './Select';
 
 export interface SelectOptionProps {
   /**
    * 选中的值
    */
-  value?: string | number;
+  value: string;
   /**
    * 禁用
    */
@@ -20,9 +21,13 @@ export interface SelectOptionProps {
   children?: React.ReactElement;
   style?: React.CSSProperties;
 }
-const handleClick = () => {};
-const SelectOption: FC<SelectOptionProps> = props => {
+
+const Option: FC<SelectOptionProps> = props => {
   const { value, disabled, className, children, style } = props;
+  const context = useContext(SelectContext);
+  const handleClick = () => {
+    context.onChange && context.onChange(value, [value]);
+  };
   const classes = classNames('viki-select-options', className, {
     'viki-select-is-disabled': disabled,
   });
@@ -32,3 +37,7 @@ const SelectOption: FC<SelectOptionProps> = props => {
     </li>
   );
 };
+
+Option.displayName = 'Option';
+
+export default Option;

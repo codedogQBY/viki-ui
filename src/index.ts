@@ -8,3 +8,4 @@ export { default as Input } from './components/Input/Input';
 export { default as AutoComplete } from './components/AutoComplete/AutoComplete';
 export { default as Upload } from './components/Upload/Upload';
 export { default as Progress } from './components/Progress/Progress';
+export { default as Select } from './components/Select/Select';
