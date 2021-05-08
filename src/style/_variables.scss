@@ -322,7 +322,9 @@ $progress-bar-transition: width 0.6s ease !default;
 $progress-bar-out-color: $gray-800 !default;
 
 // select
-$select-dropdown-margin-top: 0.25rem;
+$select-dropdown-top: 2.5rem;
+$select-dropdown-top-lg: 2.8rem;
+$select-dropdown-top-sm: 2.2rem;
 $select-dropdown-border-width: 1px;
 $select-dropdown-border-color: $gray-400;
 $select-dropdown-padding: 0.275rem;

@@ -1,7 +1,11 @@
 .viki-select {
+  position: relative;
   .viki-select-dropdown {
-    position: relative;
-    margin-top: $select-dropdown-margin-top;
+    position: absolute;
+    left: 0;
+    top: $select-dropdown-top;
+    z-index: 10;
+    background: white;
     border: $select-dropdown-border-color $select-dropdown-border-width solid;
     width: 100%;
     list-style: none;
@@ -22,7 +26,19 @@
       }
     }
     .viki-select-options-is-high-linght {
-      background-color: $gray-200;
+      background-color: $gray-100;
     }
+  }
+}
+
+.viki-select-lg {
+  .viki-select-dropdown {
+    top: $select-dropdown-top-lg;
+  }
+}
+
+.viki-select-sm {
+  .viki-select-dropdown {
+    top: $select-dropdown-top-sm;
   }
 }

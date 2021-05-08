@@ -73,11 +73,13 @@ const Select: FC<SelectProps> & {
   } = props;
 
   const [isOpen, setIsOpen] = useState<boolean>(defaultOpen || false);
-  const classes = classNames('viki-select', className, {});
+  const classes = classNames('viki-select', className, {
+    [`viki-select-${size}`]: size,
+  });
   // 选中的下标
   const [selectIndex, setSelectIndex] = useState<string>('');
   // 高亮的下标
-  const [highlightIndex, setHighlightIndex] = useState<string>('-1');
+  const [highlightIndex, setHighlightIndex] = useState<string>('0');
   // 选中的值
   const [selectValue, setSelectValue] = useState<string>(
     (defaultValue as string) || '',
@@ -85,6 +87,7 @@ const Select: FC<SelectProps> & {
   const selectRef = useRef<HTMLInputElement>(null);
   useClickOutsize(selectRef, () => {
     setIsOpen(false);
+    onVisibleChange && onVisibleChange(false);
   });
   const passedContext: ISelectContext = {
     highlightIndex,
@@ -110,7 +113,23 @@ const Select: FC<SelectProps> & {
     switch (e.keyCode) {
       case 13:
         setSelectIndex(highlightIndex);
-        // setSelectValue(React.Children);
+        setIsOpen(false);
+        // 按下回车键更新value值
+        React.Children.forEach(
+          children!,
+          (
+            child: React.ReactElement<
+              any,
+              string | React.JSXElementConstructor<any>
+            >,
+            i,
+          ) => {
+            if (highlightIndex === i.toString()) {
+              setSelectValue(child?.props?.value);
+              return;
+            }
+          },
+        );
         break;
       case 38: {
         const numIndex = parseInt(highlightIndex) - 1;
@@ -163,10 +182,7 @@ const Select: FC<SelectProps> & {
         onKeyDown={handleKeyDown}
       />
       <Transition in={isOpen} animation="zoom-in-top" timeout={300}>
-        <ul
-          style={{ display: isOpen ? 'inline-block' : 'none' }}
-          className="viki-select-dropdown"
-        >
+        <ul className="viki-select-dropdown">
           <SelectContext.Provider value={passedContext}>
             {renderChildren()}
           </SelectContext.Provider>
