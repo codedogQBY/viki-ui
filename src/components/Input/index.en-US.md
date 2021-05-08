@@ -161,17 +161,18 @@ export default InputExample;
 
 ## API
 
-| Name         | Description               | Type                                               | Default |
-| ------------ | ------------------------- | -------------------------------------------------- | ------- |
-| defaultValue | input default value       | `string & (string \| number \| readonly string[])` | `--`    |
-| disabled     | Disable input box         | `boolean`                                          | `--`    |
-| size         | Input box size            | `"lg" \| "sm"`                                     | `--`    |
-| preIcon      | Before the input box icon | `IconProp`                                         | `--`    |
-| sufIcon      | After the input box icon  | `IconProp`                                         | `--`    |
-| prefix       | Input box prefix          | `ReactNode`                                        | `--`    |
-| suffix       | Input box suffix          | `ReactNode`                                        | `--`    |
-| style        | --                        | `CSSProperties`                                    | `--`    |
-| className    | --                        | `string`                                           | `--`    |
+| Name         | Description                      | Type                                               | Default |
+| ------------ | -------------------------------- | -------------------------------------------------- | ------- |
+| defaultValue | input default value              | `string & (string \| number \| readonly string[])` | `--`    |
+| disabled     | Disable input box                | `boolean`                                          | `--`    |
+| size         | Input box size                   | `"lg" \| "sm"`                                     | `--`    |
+| preIcon      | Before the input box icon        | `IconProp`                                         | `--`    |
+| sufIcon      | After the input box icon         | `IconProp`                                         | `--`    |
+| prefix       | Input box prefix                 | `ReactNode`                                        | `--`    |
+| suffix       | Input box suffix                 | `ReactNode`                                        | `--`    |
+| InputRef     | You can bind a ref for the input | `React.Ref<HTMLInputElement>`                      | `--`    |
+| style        | --                               | `CSSProperties`                                    | `--`    |
+| className    | --                               | `string`                                           | `--`    |
 
 Other attributes and Input the React with [Input](https://reactjs.org/docs/dom-elements.html#all-supported-html-attributes).
 
