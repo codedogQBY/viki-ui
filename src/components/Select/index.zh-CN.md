@@ -7,7 +7,7 @@ const { Option } = Select;
 const ProgressExample = () => {
   return (
     <>
-      <Select style={{ width: '300px' }}>
+      <Select style={{ width: '300px' }} size="sm">
         <Option value="12" />
         <Option value="123" />
         <Option value="1456" />

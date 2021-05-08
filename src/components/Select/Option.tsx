@@ -46,7 +46,7 @@ const Option: FC<SelectOptionProps> = props => {
   const classes = classNames('viki-select-options', className, {
     'viki-select-options-is-disabled': disabled,
     'viki-select-options-is-select': index === context.selectIndex,
-    'viki-select-options-is-high-linght': index === context.highLinghtIndex,
+    'viki-select-options-is-high-linght': index === context.highlightIndex,
   });
   return (
     <li className={classes} style={style} onClick={handleClick}>
