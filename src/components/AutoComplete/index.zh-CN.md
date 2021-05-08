@@ -43,7 +43,7 @@ const AutoCompleteExample = () => {
   };
   return (
     <>
-      <AutoComplete style={{ width: '320px' }} fetchSugestion={handleFetch} />
+      <AutoComplete style={{ width: '320px' }} fetchSuggestion={handleFetch} />
     </>
   );
 };

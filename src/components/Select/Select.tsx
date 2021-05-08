@@ -1,6 +1,11 @@
-import React, { FC, useState, createContext } from 'react';
+import React, {
+  FC,
+  useState,
+  createContext,
+  useRef,
+  KeyboardEvent,
+} from 'react';
 import classNames from 'classnames';
-import Icon from '../Icon/Icon';
 import Input from '../Input/Input';
 import Transition from '../Transition/Transition';
 import useClickOutsize from '../../hooks/useClickOutside';
@@ -34,17 +39,19 @@ export interface SelectProps {
   /**
    * 选中改变触发该回调
    */
-  onChange?: (selectedValue: string, selectedValues: string[]) => void;
+  onChange?: (selectedValue?: string, selectedValues?: string[]) => void;
   /**
    * 显示隐藏下拉框触发该回调
    */
-  onVisibleChange?: (visible: boolean) => void;
+  onVisibleChange?: (visible?: boolean) => void;
   className?: 'string';
   style?: React.CSSProperties;
   children?: React.ReactElement;
 }
 
 export interface ISelectContext {
+  highlightIndex?: string;
+  selectIndex?: string;
   onChange?: (selectedValue: string, selectedValues: string[]) => void;
 }
 export const SelectContext = createContext<ISelectContext>({});
@@ -67,12 +74,62 @@ const Select: FC<SelectProps> & {
 
   const [isOpen, setIsOpen] = useState<boolean>(defaultOpen || false);
   const classes = classNames('viki-select', className, {});
+  // 选中的下标
+  const [selectIndex, setSelectIndex] = useState<string>('');
+  // 高亮的下标
+  const [highlightIndex, setHighlightIndex] = useState<string>('-1');
+  // 选中的值
   const [selectValue, setSelectValue] = useState<string>(
-    defaultValue as string,
+    (defaultValue as string) || '',
   );
+  const selectRef = useRef<HTMLInputElement>(null);
+  useClickOutsize(selectRef, () => {
+    setIsOpen(false);
+  });
   const passedContext: ISelectContext = {
+    highlightIndex,
+    selectIndex,
     onChange,
   };
+  // 获取Options的value
+  const getOption = (value: string, index: string) => {
+    setSelectIndex(index);
+    setSelectValue(value);
+  };
+  const highlight = (index: string) => {
+    const numIndex = parseInt(index);
+    if (numIndex < 0) index = '0';
+    if (numIndex >= React.Children.count(children)) {
+      index = (React.Children.count(children) - 1).toString();
+    }
+    setHighlightIndex(index);
+  };
+
+  // 键盘事件
+  const handleKeyDown = (e: KeyboardEvent<HTMLInputElement>) => {
+    switch (e.keyCode) {
+      case 13:
+        setSelectIndex(highlightIndex);
+        // setSelectValue(React.Children);
+        break;
+      case 38: {
+        const numIndex = parseInt(highlightIndex) - 1;
+        highlight(numIndex.toString());
+        break;
+      }
+      case 40: {
+        const numIndex = parseInt(highlightIndex) + 1;
+        highlight(numIndex.toString());
+        break;
+      }
+      case 27:
+        setIsOpen(false);
+        break;
+      default:
+        break;
+    }
+  };
+
   const renderChildren = () => {
     return React.Children.map(children, (child, i) => {
       const childElement = child as React.FunctionComponentElement<
@@ -81,7 +138,10 @@ const Select: FC<SelectProps> & {
       const { displayName } = childElement.type;
       // child只允许是Option组件
       if (displayName === 'Option') {
-        return React.cloneElement(childElement);
+        return React.cloneElement(childElement, {
+          getOption,
+          index: i.toString(),
+        });
       } else {
         console.error(
           'Waring: Select has a child which is not a Option component',
@@ -97,17 +157,21 @@ const Select: FC<SelectProps> & {
         value={selectValue}
         size={size}
         readOnly
-        onFocus={() => setIsOpen(!isOpen)}
+        onClick={() => setIsOpen(!isOpen)}
         placeholder={placeholder}
+        InputRef={selectRef}
+        onKeyDown={handleKeyDown}
       />
-      <ul
-        style={{ display: isOpen ? 'inline-block' : 'none' }}
-        className="viki-select-dropdown"
-      >
-        <SelectContext.Provider value={passedContext}>
-          {renderChildren()}
-        </SelectContext.Provider>
-      </ul>
+      <Transition in={isOpen} animation="zoom-in-top" timeout={300}>
+        <ul
+          style={{ display: isOpen ? 'inline-block' : 'none' }}
+          className="viki-select-dropdown"
+        >
+          <SelectContext.Provider value={passedContext}>
+            {renderChildren()}
+          </SelectContext.Provider>
+        </ul>
+      </Transition>
     </div>
   );
 };

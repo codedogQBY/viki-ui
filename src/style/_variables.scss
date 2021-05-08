@@ -320,3 +320,11 @@ $progress-border-radius: $border-radius !default;
 $progress-bar-color: $white !default;
 $progress-bar-transition: width 0.6s ease !default;
 $progress-bar-out-color: $gray-800 !default;
+
+// select
+$select-dropdown-margin-top: 0.25rem;
+$select-dropdown-border-width: 1px;
+$select-dropdown-border-color: $gray-400;
+$select-dropdown-padding: 0.275rem;
+$select-dropdown-border-radius: 5px;
+$select-options-padding: 0.25rem;

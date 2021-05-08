@@ -161,17 +161,18 @@ export default InputExample;
 
 ## API
 
-| 属性名       | 描述           | 类型                                               | 默认值 |
-| ------------ | -------------- | -------------------------------------------------- | ------ |
-| defaultValue | input 默认值   | `string & (string \| number \| readonly string[])` | `--`   |
-| disabled     | 禁用输入框     | `boolean`                                          | `--`   |
-| size         | 输入框尺寸大小 | `"lg" \| "sm"`                                     | `--`   |
-| preIcon      | 输入框前图标   | `IconProp`                                         | `--`   |
-| sufIcon      | 输入框后图标   | `IconProp`                                         | `--`   |
-| prefix       | 输入框前缀     | `ReactNode`                                        | `--`   |
-| suffix       | 输入框后缀     | `ReactNode`                                        | `--`   |
-| style        | --             | `CSSProperties`                                    | `--`   |
-| className    | --             | `string`                                           | `--`   |
+| 属性名       | 描述                        | 类型                                               | 默认值 |
+| ------------ | --------------------------- | -------------------------------------------------- | ------ |
+| defaultValue | input 默认值                | `string & (string \| number \| readonly string[])` | `--`   |
+| disabled     | 禁用输入框                  | `boolean`                                          | `--`   |
+| size         | 输入框尺寸大小              | `"lg" \| "sm"`                                     | `--`   |
+| preIcon      | 输入框前图标                | `IconProp`                                         | `--`   |
+| sufIcon      | 输入框后图标                | `IconProp`                                         | `--`   |
+| prefix       | 输入框前缀                  | `ReactNode`                                        | `--`   |
+| suffix       | 输入框后缀                  | `ReactNode`                                        | `--`   |
+| InputRef     | 可以为 input 框绑定一个 ref | `React.Ref<HTMLInputElement>`                      | `--`   |
+| style        | --                          | `CSSProperties`                                    | `--`   |
+| className    | --                          | `string`                                           | `--`   |
 
 Input 的其他属性和 React 自带的 [input](https://reactjs.org/docs/dom-elements.html#all-supported-html-attributes) 一致。
 

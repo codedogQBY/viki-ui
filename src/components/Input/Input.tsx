@@ -33,6 +33,10 @@ export interface InputBaseProps {
    * 输入框后缀
    */
   suffix?: ReactNode;
+  /**
+   * 可以为input框绑定一个ref
+   */
+  InputRef?: React.Ref<HTMLInputElement>;
   style?: React.CSSProperties;
   className?: string;
 }
@@ -53,6 +57,7 @@ const Input: React.FC<InputProps> & {
     prefix,
     suffix,
     style,
+    InputRef,
     className,
     ...restprops
   } = props;
@@ -80,7 +85,8 @@ const Input: React.FC<InputProps> & {
           className={classNames('viki-input-box', {
             preIconInput: preIcon,
           })}
-        ></input>
+          ref={InputRef}
+        />
         {sufIcon && (
           <span className="viki-input-sufIcon">
             <Icon icon={sufIcon}></Icon>
