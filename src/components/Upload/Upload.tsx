@@ -1,7 +1,7 @@
 import React, { useRef, ChangeEvent, useState } from 'react';
 import axios from 'axios';
 import UploadList from './UploadList';
-import Button from '../Button/Button';
+import Dragger from './Dragger';
 
 export type UploadFileStatus = 'ready' | 'uploading' | 'success' | 'fail';
 export interface UploadFile extends File {
@@ -242,7 +242,17 @@ const Upload: React.FC<UploadProps &
   return (
     <div className="viki-upload-component" style={style}>
       <div className="viki-upload-input" onClick={handleClick}>
-        {children}
+        {drag ? (
+          <Dragger
+            onFile={files => {
+              uploadFiles(files);
+            }}
+          >
+            {children}
+          </Dragger>
+        ) : (
+          children
+        )}
         <input
           className="viki-file-input"
           ref={fileInput}

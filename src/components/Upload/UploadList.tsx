@@ -24,7 +24,7 @@ const UploadList: FC<UploadListProps> = props => {
           <li className="viki-upload-list-item" key={item.uid}>
             <span className={`file-name file-name-${item.status}`}>
               <Icon icon="paperclip" />
-              {item.name}
+              <div className="file-text">{item.name}</div>
             </span>
             <span className="file-status">
               <Icon

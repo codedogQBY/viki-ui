@@ -40,22 +40,36 @@ const Option: FC<SelectOptionProps> = props => {
   } = props;
   const context = useContext(SelectContext);
   const handleClick = () => {
-    context.onChange && context.onChange(value, [value]);
+    if (disabled) return;
+    if (context.onChange) {
+      if (context.multiple) {
+        context.onChange(value, [...context.selectValues!, value]);
+      } else {
+        context.onChange(value, [value]);
+      }
+    }
     getOption(value, index);
   };
+  const selectFlag = context.multiple
+    ? context.selectIndexArr?.includes(index)
+    : index === context.selectIndex;
   const classes = classNames('viki-select-options', className, {
     'viki-select-options-is-disabled': disabled,
-    'viki-select-options-is-select': index === context.selectIndex,
-    'viki-select-options-is-high-linght': index === context.highlightIndex,
+    'viki-select-options-is-select': selectFlag,
+    'viki-select-options-is-high-linght':
+      !disabled && index === context.highlightIndex,
   });
   return (
     <li className={classes} style={style} onClick={handleClick}>
       {children || value}
-      {index === context.selectIndex && <Icon size="sm" icon="check" />}
+      {selectFlag && <Icon size="sm" icon="check" />}
     </li>
   );
 };
 
 Option.displayName = 'Option';
+Option.defaultProps = {
+  disabled: false,
+};
 
 export default Option;
