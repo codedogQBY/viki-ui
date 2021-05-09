@@ -3,6 +3,7 @@ import React, {
   useState,
   createContext,
   useRef,
+  useEffect,
   KeyboardEvent,
 } from 'react';
 import classNames from 'classnames';
@@ -14,7 +15,7 @@ export interface SelectProps {
   /**
    * 默认值
    */
-  defaultValue?: string;
+  defaultValue?: string | string[];
   /**
    * 提示文字内容
    */
@@ -50,6 +51,9 @@ export interface SelectProps {
 }
 
 export interface ISelectContext {
+  multiple?: boolean;
+  selectIndexArr?: string[];
+  selectValues?: string[];
   highlightIndex?: string;
   selectIndex?: string;
   onChange?: (selectedValue: string, selectedValues: string[]) => void;
@@ -64,7 +68,7 @@ const Select: FC<SelectProps> & {
     disabled,
     size,
     defaultOpen,
-    multiple,
+    multiple = false,
     onChange,
     onVisibleChange,
     className,
@@ -75,7 +79,12 @@ const Select: FC<SelectProps> & {
   const [isOpen, setIsOpen] = useState<boolean>(defaultOpen || false);
   const classes = classNames('viki-select', className, {
     [`viki-select-${size}`]: size,
+    [`viki-select-is-open`]: isOpen,
   });
+  // 多选下标
+  const [selectIndexArr, setSelectIndexArr] = useState<string[]>([]);
+  // 多选的值
+  const [selectValues, setSelectValues] = useState<string[]>([]);
   // 选中的下标
   const [selectIndex, setSelectIndex] = useState<string>('');
   // 高亮的下标
@@ -89,56 +98,86 @@ const Select: FC<SelectProps> & {
     setIsOpen(false);
     onVisibleChange && onVisibleChange(false);
   });
+  // 获取children数组
+  const selectChildren = React.Children.toArray(
+    children!,
+  ) as React.ReactElement<any, string | React.JSXElementConstructor<any>>[];
+  const len = selectChildren.length;
+
+  useEffect(() => {
+    let numIndex = parseInt(highlightIndex);
+    while (numIndex < len - 1 && selectChildren[numIndex].props.disabled) {
+      numIndex++;
+    }
+    setHighlightIndex(numIndex.toString());
+  }, []);
+
   const passedContext: ISelectContext = {
+    selectIndexArr,
+    multiple,
+    selectValues,
     highlightIndex,
     selectIndex,
     onChange,
   };
+  // 更新数据
+  const updateData = (value: string, index: string): void => {
+    if (multiple && selectIndexArr.includes(index)) return;
+    !multiple && setSelectIndex(index);
+    !multiple && setSelectValue(value);
+    multiple &&
+      setSelectIndexArr(pre => {
+        return [...pre, index];
+      });
+    multiple &&
+      setSelectValues(pre => {
+        return [...pre, value];
+      });
+  };
   // 获取Options的value
   const getOption = (value: string, index: string) => {
-    setSelectIndex(index);
-    setSelectValue(value);
+    updateData(value, index);
   };
-  const highlight = (index: string) => {
-    const numIndex = parseInt(index);
-    if (numIndex < 0) index = '0';
-    if (numIndex >= React.Children.count(children)) {
-      index = (React.Children.count(children) - 1).toString();
-    }
-    setHighlightIndex(index);
+  //多选下清除数据
+  const delData = (index: string) => {
+    const i = selectIndexArr.includes(index);
   };
-
   // 键盘事件
   const handleKeyDown = (e: KeyboardEvent<HTMLInputElement>) => {
     switch (e.keyCode) {
-      case 13:
-        setSelectIndex(highlightIndex);
-        setIsOpen(false);
+      case 13: {
         // 按下回车键更新value值
-        React.Children.forEach(
-          children!,
-          (
-            child: React.ReactElement<
-              any,
-              string | React.JSXElementConstructor<any>
-            >,
-            i,
-          ) => {
-            if (highlightIndex === i.toString()) {
-              setSelectValue(child?.props?.value);
-              return;
-            }
-          },
-        );
+        let numIndex = parseInt(highlightIndex);
+        if (!selectChildren[numIndex].props.disabled) {
+          updateData(selectChildren[numIndex]?.props?.value, highlightIndex);
+          setIsOpen(false);
+        }
         break;
+      }
       case 38: {
-        const numIndex = parseInt(highlightIndex) - 1;
-        highlight(numIndex.toString());
+        let numIndex = parseInt(highlightIndex) - 1;
+        if (numIndex <= 0) break;
+        while (numIndex > 0 && selectChildren[numIndex].props.disabled) {
+          numIndex--;
+        }
+        if (numIndex < 0) {
+          setHighlightIndex('0');
+        } else {
+          setHighlightIndex(numIndex.toString());
+        }
         break;
       }
       case 40: {
-        const numIndex = parseInt(highlightIndex) + 1;
-        highlight(numIndex.toString());
+        let numIndex = parseInt(highlightIndex) + 1;
+        if (numIndex >= len - 1) break;
+        while (numIndex < len - 1 && selectChildren[numIndex].props.disabled) {
+          numIndex++;
+        }
+        if (numIndex > len - 1) {
+          setHighlightIndex((len - 1).toString());
+        } else {
+          setHighlightIndex(numIndex.toString());
+        }
         break;
       }
       case 27:
@@ -173,7 +212,7 @@ const Select: FC<SelectProps> & {
       <Input
         disabled={disabled}
         sufIcon="angle-down"
-        value={selectValue}
+        value={multiple ? '' : selectValue}
         size={size}
         readOnly
         onClick={() => setIsOpen(!isOpen)}

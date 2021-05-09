@@ -5,6 +5,7 @@
 }
 
 .viki-upload-input {
+  width: 100%;
   display: inline-block;
 }
 
@@ -14,7 +15,7 @@
   border-radius: 4px;
   cursor: pointer;
   padding: 20px;
-  width: 360px;
+  width: 100%;
   height: 180px;
   text-align: center;
   &:hover {
@@ -42,9 +43,21 @@
   .file-name {
     margin-left: 5px;
     margin-right: 40px;
+    .file-text {
+      margin-left: 20px;
+      display: inline-block;
+      max-width: 80%;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
     svg {
       margin-right: 8px;
       color: $gray-500;
+    }
+    .viki-icon {
+      position: absolute;
+      top: 2px;
     }
   }
   .file-name-fail {
@@ -57,7 +70,7 @@
     display: block;
     position: absolute;
     right: 5px;
-    top: 0;
+    top: 2px;
     line-height: inherit;
   }
   .file-actions {

@@ -1,6 +1,6 @@
 ```tsx
 import React, { useState } from 'react';
-import { Upload,Button } from 'viki-ui';
+import { Upload, Button } from 'viki-ui';
 
 const UploadExample = () => {
   const handleTest = (file: File) => {
@@ -41,7 +41,7 @@ export default UploadExample;
 
 ```tsx
 import React, { useState } from 'react';
-import { Upload,Button } from 'viki-ui';
+import { Upload, Button } from 'viki-ui';
 
 const UploadExample = () => {
   const defaultFileList = [
@@ -74,6 +74,32 @@ const UploadExample = () => {
       action="https://jsonplaceholder.typicode.com/posts/"
     >
       <Button btnType="primary">上传</Button>
+    </Upload>
+  );
+};
+
+export default UploadExample;
+```
+
+```tsx
+import React, { useState } from 'react';
+import { Upload, Button, Icon } from 'viki-ui';
+
+const UploadExample = () => {
+  return (
+    <Upload
+      style={{ width: '400px' }}
+      action="https://jsonplaceholder.typicode.com/posts/"
+      onSuccess={(data, file) => {
+        console.log(data, file);
+      }}
+      onChange={() => {
+        console.log('文件状态改变');
+      }}
+      drag
+    >
+      <Icon icon="cloud-upload-alt" size="5x" theme="secondary" />
+      <div style={{ marginTop: 20, color: 'gray' }}>点击/拖拽上传文件</div>
     </Upload>
   );
 };

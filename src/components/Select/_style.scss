@@ -28,6 +28,22 @@
     .viki-select-options-is-high-linght {
       background-color: $gray-100;
     }
+    .viki-select-options-is-disabled {
+      color: $gray-300;
+      cursor: not-allowed;
+      &:hover {
+        color: $gray-300;
+      }
+    }
+  }
+  .viki-input {
+    &:first-child {
+      .viki-input-sufIcon {
+        svg {
+          transition: transform 300ms linear;
+        }
+      }
+    }
   }
 }
 
@@ -40,5 +56,17 @@
 .viki-select-sm {
   .viki-select-dropdown {
     top: $select-dropdown-top-sm;
+  }
+}
+
+.viki-select-is-open {
+  .viki-input {
+    &:first-child {
+      .viki-input-sufIcon {
+        svg {
+          transform: rotate(180deg);
+        }
+      }
+    }
   }
 }

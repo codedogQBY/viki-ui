@@ -47,6 +47,7 @@ const TextArea: React.FC<TextAreaProps & InputBaseProps> = props => {
   });
   return (
     <>
+      {/*@ts-ignore */}
       <textarea
         defaultValue={defaultValue}
         placeholder={placeholder}

@@ -1,4 +1,8 @@
 import './style/index.scss';
+// import './index.css';
+import { library } from '@fortawesome/fontawesome-svg-core';
+import { fas } from '@fortawesome/free-solid-svg-icons';
+library.add(fas);
 export { default as Button } from './components/Button/Button';
 export { default as Alert } from './components/Alert/Alert';
 export { default as Menu } from './components/Menu/index';
