@@ -25,6 +25,7 @@ export interface SelectOptionProps {
    */
   children?: React.ReactElement;
   getOption: (vaule: string, index: string) => void;
+  delData: (index: string) => void;
   style?: React.CSSProperties;
 }
 
@@ -36,6 +37,7 @@ const Option: FC<SelectOptionProps> = props => {
     className,
     children,
     style,
+    delData,
     getOption,
   } = props;
   const context = useContext(SelectContext);
@@ -48,7 +50,11 @@ const Option: FC<SelectOptionProps> = props => {
         context.onChange(value, [value]);
       }
     }
-    getOption(value, index);
+    if (context.multiple && context.selectIndexArr?.includes(index)) {
+      delData(index);
+    } else {
+      getOption(value, index);
+    }
   };
   const selectFlag = context.multiple
     ? context.selectIndexArr?.includes(index)

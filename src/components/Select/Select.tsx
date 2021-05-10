@@ -123,16 +123,19 @@ const Select: FC<SelectProps> & {
   // 更新数据
   const updateData = (value: string, index: string): void => {
     if (multiple && selectIndexArr.includes(index)) return;
-    !multiple && setSelectIndex(index);
-    !multiple && setSelectValue(value);
-    multiple &&
+
+    if (multiple) {
       setSelectIndexArr(pre => {
         return [...pre, index];
       });
-    multiple &&
       setSelectValues(pre => {
         return [...pre, value];
       });
+    } else {
+      setSelectIndex(index);
+      setSelectValue(value);
+      setIsOpen(false);
+    }
   };
   // 获取Options的value
   const getOption = (value: string, index: string) => {
@@ -140,17 +143,26 @@ const Select: FC<SelectProps> & {
   };
   //多选下清除数据
   const delData = (index: string) => {
-    const i = selectIndexArr.includes(index);
+    const i = selectIndexArr.indexOf(index);
+    const newArr = [...selectIndexArr];
+    const newVlaues = [...selectValues];
+    newArr.splice(i, 1);
+    newVlaues.splice(i, 1);
+    setSelectIndexArr(newArr);
+    setSelectValues(newVlaues);
   };
   // 键盘事件
   const handleKeyDown = (e: KeyboardEvent<HTMLInputElement>) => {
     switch (e.keyCode) {
       case 13: {
         // 按下回车键更新value值
-        let numIndex = parseInt(highlightIndex);
-        if (!selectChildren[numIndex].props.disabled) {
+
+        if (selectIndexArr.includes(highlightIndex)) {
+          delData(highlightIndex);
+        } else {
+          let numIndex = parseInt(highlightIndex);
           updateData(selectChildren[numIndex]?.props?.value, highlightIndex);
-          setIsOpen(false);
+          !multiple && setIsOpen(false);
         }
         break;
       }
@@ -197,6 +209,7 @@ const Select: FC<SelectProps> & {
       // child只允许是Option组件
       if (displayName === 'Option') {
         return React.cloneElement(childElement, {
+          delData,
           getOption,
           index: i.toString(),
         });
@@ -208,7 +221,7 @@ const Select: FC<SelectProps> & {
     });
   };
   return (
-    <div className={classes} style={style}>
+    <div className={classes} style={style} ref={selectRef}>
       <Input
         disabled={disabled}
         sufIcon="angle-down"
@@ -217,7 +230,6 @@ const Select: FC<SelectProps> & {
         readOnly
         onClick={() => setIsOpen(!isOpen)}
         placeholder={placeholder}
-        InputRef={selectRef}
         onKeyDown={handleKeyDown}
       />
       <Transition in={isOpen} animation="zoom-in-top" timeout={300}>
