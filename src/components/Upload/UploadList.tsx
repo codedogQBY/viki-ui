@@ -46,7 +46,7 @@ const UploadList: FC<UploadListProps> = props => {
                 strokeHidth={4}
                 percent={item.percent || 0}
                 theme={statusMap.get(item.status!)!['theme'] as ThemeProps}
-                textOutsize
+                textOutside
               />
             )}
           </li>

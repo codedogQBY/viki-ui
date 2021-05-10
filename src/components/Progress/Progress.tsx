@@ -40,7 +40,7 @@ export interface ProgressProps {
   /**
    * 文字是否外显，默认内显
    */
-  textOutsize?: boolean;
+  textOutside?: boolean;
 }
 
 const Progress: FC<ProgressProps & HTMLProps<HTMLElement>> = props => {
@@ -50,7 +50,7 @@ const Progress: FC<ProgressProps & HTMLProps<HTMLElement>> = props => {
     showText = true,
     theme = 'primary',
     color,
-    textOutsize,
+    textOutside,
     style,
   } = props;
   const [bgColor, setBgColor] = useState<string>();
@@ -108,18 +108,18 @@ const Progress: FC<ProgressProps & HTMLProps<HTMLElement>> = props => {
     <div className="viki-progress-bar" style={style}>
       <div
         className="viki-progress-bar-outer"
-        style={{ height: strokeHidth || (textOutsize ? '8px' : '15px') }}
+        style={{ height: strokeHidth || (textOutside ? '8px' : '15px') }}
       >
         <div
           className={`viki-progress-bar-inner progress-color-${theme}`}
           style={{ width: `${percent}%`, backgroundColor: bgColor }}
         >
-          {!textOutsize && (
+          {!textOutside && (
             <span className="inner-text">{showText && `${percent}%`}</span>
           )}
         </div>
       </div>
-      {textOutsize && (
+      {textOutside && (
         <span className="out-text">{showText && `${percent}%`}</span>
       )}
     </div>

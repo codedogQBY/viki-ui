@@ -1,3 +1,11 @@
+---
+category: Components
+cols: 1
+type: 数据展示
+title: Select
+subtitle: 选择框
+---
+
 ```tsx
 import React from 'react';
 import { Select } from 'viki-ui';
