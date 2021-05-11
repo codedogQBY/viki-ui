@@ -1,3 +1,11 @@
+---
+category: Components
+cols: 1
+type: 数据展示
+title: Upload
+subtitle: 上传
+---
+
 ```tsx
 import React, { useState } from 'react';
 import { Upload, Button } from 'viki-ui';
