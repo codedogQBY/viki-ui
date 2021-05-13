@@ -67,7 +67,7 @@ const Option: FC<SelectOptionProps> = props => {
   });
   return (
     <li className={classes} style={style} onClick={handleClick}>
-      {children || value}
+      <span className="viki-option-content">{children || value}</span>
       {selectFlag && <Icon size="sm" icon="check" />}
     </li>
   );

@@ -16,6 +16,10 @@ When there is a need for autocomplete functionality.
 ## Based on using
 
 ```tsx
+/**
+ * title: Based on using
+ * desc: FetchSuggestion function to contain the value value
+ */
 import React from 'react';
 import { AutoComplete } from 'viki-ui';
 
@@ -52,6 +56,10 @@ export default AutoCompleteExample;
 ## An asynchronous request
 
 ```tsx
+/**
+ * title: An asynchronous request
+ * desc: Support the use of the value of the remote server to indicate.
+ */
 import React from 'react';
 import { AutoComplete } from 'viki-ui';
 
@@ -72,6 +80,52 @@ const AutoCompleteExample = () => {
   return (
     <>
       <AutoComplete style={{ width: '320px' }} fetchSuggestion={handleFetch} />
+    </>
+  );
+};
+
+export default AutoCompleteExample;
+```
+
+## Custom templates
+
+```tsx
+/**
+ * title: Custom templates
+ * desc: Custom prompt template.
+ */
+import React from 'react';
+import { AutoComplete } from 'viki-ui';
+
+const AutoCompleteExample = () => {
+  const student = [
+    { name: 'Mike', age: '23' },
+    { name: 'Lisa', age: '18' },
+    { name: 'Jack', age: '17' },
+    { name: 'Jhon', age: '13' },
+  ];
+  const handleFetch = (query: string) => {
+    return student
+      .filter(item => item.name.includes(query))
+      .map(item => {
+        return { value: item.name, ...item };
+      });
+  };
+  const renderOption = item => {
+    return (
+      <>
+        <span>{item.name}</span>
+        <span>{`    is ${item.age} years old`}</span>
+      </>
+    );
+  };
+  return (
+    <>
+      <AutoComplete
+        style={{ width: '320px' }}
+        fetchSuggestion={handleFetch}
+        renderOption={renderOption}
+      />
     </>
   );
 };

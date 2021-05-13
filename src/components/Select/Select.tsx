@@ -50,6 +50,19 @@ export interface SelectProps {
   children?: React.ReactElement;
 }
 
+function scrControl(t: boolean) {
+  function bodyScroll(event: Event) {
+    event.preventDefault();
+  }
+  if (t === false) {
+    //禁止滚动
+    document.body.addEventListener('scroll', bodyScroll, false);
+  } else if (t === true) {
+    //开启滚动
+    document.body.removeEventListener('scroll', bodyScroll, false);
+  }
+}
+
 export interface ISelectContext {
   multiple?: boolean;
   selectIndexArr?: string[];
@@ -168,7 +181,8 @@ const Select: FC<SelectProps> & {
       }
       case 38: {
         let numIndex = parseInt(highlightIndex) - 1;
-        if (numIndex <= 0) break;
+
+        if (parseInt(highlightIndex) <= 0) break;
         while (numIndex > 0 && selectChildren[numIndex].props.disabled) {
           numIndex--;
         }
@@ -181,7 +195,7 @@ const Select: FC<SelectProps> & {
       }
       case 40: {
         let numIndex = parseInt(highlightIndex) + 1;
-        if (numIndex >= len - 1) break;
+        if (parseInt(highlightIndex) >= len - 1) break;
         while (numIndex < len - 1 && selectChildren[numIndex].props.disabled) {
           numIndex++;
         }

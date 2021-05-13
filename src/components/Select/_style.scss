@@ -14,15 +14,20 @@
     box-shadow: $box-shadow-sm;
     .viki-select-options {
       cursor: pointer;
+      display: flex;
+      align-items: center;
       padding: $select-options-padding;
       &:hover {
         color: $primary;
+      }
+      .viki-option-content {
+        flex: 10;
       }
     }
     .viki-select-options-is-select {
       color: $primary;
       .viki-icon {
-        float: right;
+        flex: 1;
       }
     }
     .viki-select-options-is-high-linght {
