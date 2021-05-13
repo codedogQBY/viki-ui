@@ -18,6 +18,10 @@ title: Auto-complete
 ## 基础使用
 
 ```tsx
+/**
+ * title: 基础使用
+ * desc: fetchSuggestion函数中需含有value值
+ */
 import React from 'react';
 import { AutoComplete } from 'viki-ui';
 
@@ -54,6 +58,10 @@ export default AutoCompleteExample;
 ## 异步请求
 
 ```tsx
+/**
+ * title: 异步请求
+ * desc: 支持使用远程服务器的值进行提示。
+ */
 import React from 'react';
 import { AutoComplete } from 'viki-ui';
 
@@ -74,6 +82,52 @@ const AutoCompleteExample = () => {
   return (
     <>
       <AutoComplete style={{ width: '320px' }} fetchSuggestion={handleFetch} />
+    </>
+  );
+};
+
+export default AutoCompleteExample;
+```
+
+## 自定义模板
+
+```tsx
+/**
+ * title: 自定义模板
+ * desc: 自定义提示模板展示。
+ */
+import React from 'react';
+import { AutoComplete } from 'viki-ui';
+
+const AutoCompleteExample = () => {
+  const student = [
+    { name: 'Mike', age: '23' },
+    { name: 'Lisa', age: '18' },
+    { name: 'Jack', age: '17' },
+    { name: 'Jhon', age: '13' },
+  ];
+  const handleFetch = (query: string) => {
+    return student
+      .filter(item => item.name.includes(query))
+      .map(item => {
+        return { value: item.name, ...item };
+      });
+  };
+  const renderOption = item => {
+    return (
+      <>
+        <span>{item.name}</span>
+        <span>{`    今年${item.age}岁`}</span>
+      </>
+    );
+  };
+  return (
+    <>
+      <AutoComplete
+        style={{ width: '320px' }}
+        fetchSuggestion={handleFetch}
+        renderOption={renderOption}
+      />
     </>
   );
 };
