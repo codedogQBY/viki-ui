@@ -27,19 +27,12 @@ import React from 'react';
 import { Button } from 'viki-ui';
 
 const ButtonExample = () => {
-  const btnStyle = {
-    margin: '0 10px',
-  };
   return (
     <>
-      <Button style={btnStyle} btnType="primary">
-        The main button
-      </Button>
-      <Button style={btnStyle}>The default button</Button>
-      <Button style={btnStyle} btnType="danger">
-        Dangerous button
-      </Button>
-      <Button style={btnStyle} btnType="link" href="https://www.baidu.com">
+      <Button btnType="primary">The main button</Button>
+      <Button>The default button</Button>
+      <Button btnType="danger">Dangerous button</Button>
+      <Button btnType="link" href="https://www.baidu.com">
         The text button
       </Button>
     </>
@@ -58,18 +51,13 @@ import React, { useState } from 'react';
 import { Button } from 'viki-ui';
 
 const ButtonExample = () => {
-  const btnStyle = {
-    margin: '0 10px',
-  };
   return (
     <>
-      <Button style={btnStyle} btnType="primary" size="lg">
+      <Button btnType="primary" size="lg">
         Large buttons
       </Button>
-      <Button style={btnStyle} btnType="primary">
-        The default button
-      </Button>
-      <Button style={btnStyle} btnType="primary" size="sm">
+      <Button btnType="primary">The default button</Button>
+      <Button btnType="primary" size="sm">
         Small button
       </Button>
     </>

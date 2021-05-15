@@ -9,6 +9,7 @@
   vertical-align: middle;
   background-image: none;
   border-width: $btn-border-width;
+  margin: 8px;
   outline: 0;
   @include button-size(
     $btn-padding-y,
