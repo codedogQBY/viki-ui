@@ -2,7 +2,7 @@
 category: Components
 subtitle: 图标
 type: 通用
-title: Icon
+title: Icon 图标
 ---
 
 # Icon 图标

@@ -2,7 +2,7 @@
 category: Components
 cols: 1
 type: 数据展示
-title: Upload
+title: Upload 上传
 subtitle: 上传
 ---
 

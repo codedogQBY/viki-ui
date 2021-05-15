@@ -48,7 +48,7 @@ const ProgressExample = () => {
   ];
   return (
     <>
-      <Select style={{ width: '280px' }} placeholder="Please select a">
+      <Select style={{ width: '280px' }} placeholder="Please select">
         {options.map(item => (
           <Option key={item.value} value={item.label} />
         ))}
@@ -97,7 +97,7 @@ const ProgressExample = () => {
   ];
   return (
     <>
-      <Select style={{ width: '280px' }} placeholder="Please select a">
+      <Select style={{ width: '280px' }} placeholder="Please select">
         {options.map(item => (
           <Option
             key={item.value}
@@ -149,7 +149,7 @@ const ProgressExample = () => {
   ];
   return (
     <>
-      <Select style={{ width: '280px' }} disabled placeholder="请选择">
+      <Select style={{ width: '280px' }} disabled placeholder="Please select">
         {options.map(item => (
           <Option key={item.value} value={item.label} />
         ))}
@@ -197,7 +197,7 @@ const ProgressExample = () => {
   ];
   return (
     <>
-      <Select style={{ width: '280px' }} multiple placeholder="Please select a">
+      <Select style={{ width: '280px' }} multiple placeholder="Please select">
         {options.map(item => (
           <Option key={item.value} value={item.label} />
         ))}
@@ -245,7 +245,7 @@ const ProgressExample = () => {
   ];
   return (
     <>
-      <Select style={{ width: '280px' }} placeholder="Please select a">
+      <Select style={{ width: '280px' }} placeholder="Please select">
         {options.map(item => (
           <Option key={item.value} value={item.label}>
             <div>{item.label}:</div>

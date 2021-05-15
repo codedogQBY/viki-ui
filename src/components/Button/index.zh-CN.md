@@ -1,7 +1,7 @@
 ---
 category: Components
 type: 通用
-title: Button
+title: Button 按钮
 subtitle: 按钮
 ---
 

@@ -1,7 +1,7 @@
 import React, { FC, useContext } from 'react';
 import classNames from 'classnames';
 import { SelectContext } from './Select';
-import Icon from '../Icon/Icon';
+import Icon from '../icon/Icon';
 
 export interface SelectOptionProps {
   /**

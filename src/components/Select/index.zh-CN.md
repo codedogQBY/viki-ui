@@ -2,7 +2,7 @@
 category: Components
 cols: 1
 type: 数据展示
-title: Select
+title: Select 选择器
 subtitle: 选择器
 ---
 

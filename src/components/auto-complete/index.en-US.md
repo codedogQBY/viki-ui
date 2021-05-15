@@ -2,7 +2,7 @@
 category: Components
 type: Data Entry
 cols: 2
-title: Auto-complete
+title: AutoComplete
 ---
 
 # Autocomplete

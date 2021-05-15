@@ -1,7 +1,7 @@
 import React, { ReactNode, InputHTMLAttributes } from 'react';
 import classNames from 'classnames';
 import { IconProp } from '@fortawesome/fontawesome-svg-core';
-import Icon from '../Icon/Icon';
+import Icon from '../icon/Icon';
 import TextArea from './TextArea';
 import PassWord from './PassWord';
 export interface InputBaseProps {

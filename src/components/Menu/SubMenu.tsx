@@ -2,8 +2,8 @@ import React, { useState, FunctionComponentElement, useContext } from 'react';
 import classNames from 'classnames';
 import { MenuContext } from './Menu';
 import { MenuItemProps } from './MenuItem';
-import Icon from '../Icon/Icon';
-import Transition from '../Transition/Transition';
+import Icon from '../icon/Icon';
+import Transition from '../transition/Transition';
 
 export interface SubMenuProps {
   /**

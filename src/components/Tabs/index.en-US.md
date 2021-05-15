@@ -248,4 +248,4 @@ const TabsExample = () => {
 export default TabsExample;
 ```
 
-<API src="./index.tsx"></API>
+<API src="./Tabs.tsx"></API>

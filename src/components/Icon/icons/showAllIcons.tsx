@@ -5,7 +5,7 @@
 
 import React, { useState } from 'react';
 import Icon from '../Icon';
-import Input from '../../Input/Input';
+import Input from '../../input/Input';
 import icons, { IconName } from './allIcons';
 import { CopyToClipboard } from 'react-copy-to-clipboard';
 import './style.scss';
