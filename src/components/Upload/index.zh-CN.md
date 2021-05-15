@@ -6,40 +6,43 @@ title: Upload
 subtitle: 上传
 ---
 
+# Upload 上传
+
+通过点击或者拖拽上传文件
+
+## 点击上传
+
 ```tsx
+/**
+ * title: 点击上传
+ * desc: 点击按钮弹出文件选择框
+ */
 import React, { useState } from 'react';
 import { Upload, Button } from 'viki-ui';
 
 const UploadExample = () => {
-  const handleTest = (file: File) => {
+  const handleTest = file => {
     if (Math.round(file.size / 1024) > 50) {
-      console.log('file is too bog');
+      alert('file is too bog');
       return false;
     }
     return true;
   };
-  // const handleTest2 = (file: File) => {
-  //   const newFile = new File([file], 'new_name', { type: file.type });
-  //   return Promise.resolve(newFile);
-  // };
   return (
     <Upload
       action="https://jsonplaceholder.typicode.com/posts/"
-      //   onProgress={(percentage, file) => {
-      //     console.log(percentage, file);
-      //   }}
+      beforeUpload={handleTest}
       onSuccess={(data, file) => {
         console.log(data, file);
       }}
-      //   onError={(err, file) => {
-      //     console.log(err, file);
-      //   }}
       onChange={() => {
         console.log('文件状态改变');
       }}
-      // beforeUpload={handleTest2}
     >
-      <Button btnType="primary">上传</Button>
+      <Button btnType="primary">上传文件</Button>
+      <div style={{ marginTop: 20, fontSize: 12 }}>
+        只能上传jpg/png文件，且不超过500kb
+      </div>
     </Upload>
   );
 };
@@ -47,12 +50,24 @@ const UploadExample = () => {
 export default UploadExample;
 ```
 
+## 四种状态
+
 ```tsx
+/**
+ * title: 四种状态
+ * desc: 文件上传的四种状态，分别是ready、uploading、success和fail
+ */
 import React, { useState } from 'react';
 import { Upload, Button } from 'viki-ui';
 
 const UploadExample = () => {
   const defaultFileList = [
+    {
+      uid: '0',
+      name: 'uuu.png',
+      status: 'ready',
+      url: 'http://www.baidu.com/uuu.png',
+    },
     {
       uid: '1',
       name: 'xxx.png',
@@ -89,7 +104,13 @@ const UploadExample = () => {
 export default UploadExample;
 ```
 
+## 拖拽上传
+
 ```tsx
+/**
+ * title: 拖拽上传
+ * desc: 用户操作体验更好的拖拽上传
+ */
 import React, { useState } from 'react';
 import { Upload, Button, Icon } from 'viki-ui';
 
@@ -114,3 +135,5 @@ const UploadExample = () => {
 
 export default UploadExample;
 ```
+
+<API src='./Upload.tsx'></API>
