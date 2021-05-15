@@ -19,7 +19,6 @@ export default defineConfig({
   navs: {
     // 多语言 key 值需与 locales 配置中的 key 一致
     'en-US': [
-      null, // null 值代表保留约定式生成的导航，只做增量配置
       {
         title: 'Components',
         path: '/components',
@@ -30,7 +29,6 @@ export default defineConfig({
       },
     ],
     'zh-CN': [
-      null, // null 值代表保留约定式生成的导航，只做增量配置
       {
         title: '组件',
         path: '/components',
