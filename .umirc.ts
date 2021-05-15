@@ -21,7 +21,7 @@ export default defineConfig({
     'en-US': [
       {
         title: 'Components',
-        path: '/components',
+        path: '/en-US/components',
       },
       {
         title: 'GitHub',
