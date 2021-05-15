@@ -1,8 +1,8 @@
 import React, { FC, useRef } from 'react';
 import { UploadFile } from './Upload';
-import Icon, { ThemeProps } from '../Icon/Icon';
-import { IconName } from '../Icon/icons/allIcons';
-import Progress from '../Progress/Progress';
+import Icon, { ThemeProps } from '../icon/Icon';
+import { IconName } from '../icon/icons/allIcons';
+import Progress from '../progress/Progress';
 
 interface UploadListProps {
   fileList: UploadFile[];

@@ -2,7 +2,7 @@
 category: Components
 subtitle: 输入框
 type: 数据录入
-title: Input
+title: Input 输入框
 ---
 
 # Input 输入框

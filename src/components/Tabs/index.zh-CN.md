@@ -2,7 +2,7 @@
 category: Components
 subtitle: 标签页
 type: 数据展示
-title: Tabs
+title: Tabs 标签页
 cols: 1
 ---
 
@@ -247,4 +247,4 @@ const TabsExample = () => {
 export default TabsExample;
 ```
 
-<API src="./index.tsx"></API>
+<API src="./Tabs.tsx"></API>

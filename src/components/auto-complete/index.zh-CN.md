@@ -3,7 +3,7 @@ category: Components
 subtitle: 自动完成
 type: 数据录入
 cols: 2
-title: Auto-complete
+title: AutoComplete 自动输入
 ---
 
 # Autocomplete 自动输入

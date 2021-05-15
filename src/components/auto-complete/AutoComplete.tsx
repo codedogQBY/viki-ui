@@ -7,11 +7,11 @@ import React, {
   useEffect,
   useRef,
 } from 'react';
-import Input, { InputProps } from '../Input/Input';
+import Input, { InputProps } from '../input/Input';
 import classNames from 'classnames';
-import Icon from '../Icon/Icon';
+import Icon from '../icon/Icon';
 import useDebounce from '../../hooks/useDebounce';
-import Transition from '../Transition/Transition';
+import Transition from '../transition/Transition';
 import useClickOutsize from '../../hooks/useClickOutside';
 interface DataSourceObject {
   value: string;

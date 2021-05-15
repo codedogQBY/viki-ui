@@ -7,8 +7,8 @@ import React, {
   KeyboardEvent,
 } from 'react';
 import classNames from 'classnames';
-import Input from '../Input/Input';
-import Transition from '../Transition/Transition';
+import Input from '../input/Input';
+import Transition from '../transition/Transition';
 import useClickOutsize from '../../hooks/useClickOutside';
 import Option, { SelectOptionProps } from './Option';
 export interface SelectProps {

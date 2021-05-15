@@ -2,8 +2,7 @@
 category: Components
 cols: 1
 type: 导航
-title: Menu
-subtitle: 导航菜单
+title: Menu 导航菜单
 ---
 
 # Menu 导航菜单
@@ -100,4 +99,4 @@ const MenuExample = () => {
 export default MenuExample;
 ```
 
-<API  src='./index.tsx'></API>
+<API  src='./Menu.tsx'></API>

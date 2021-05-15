@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { InputProps } from './Input';
 import classNames from 'classnames';
 import { IconProp } from '@fortawesome/fontawesome-svg-core';
-import Icon from '../Icon/Icon';
+import Icon from '../icon/Icon';
 
 export interface PassWordProps extends InputProps {
   /**

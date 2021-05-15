@@ -1,9 +1,8 @@
 ---
 category: Components
 cols: 1
-type: navigation
+type: 导航
 title: Menu
-subtitle: Menu
 ---
 
 # Menu
@@ -13,6 +12,8 @@ Provide navigation menu list page and function.
 # When to use
 
 Navigation menu is the soul of a web site, users rely on navigation on every page jump.General component is at the top of the navigation and side navigation and top navigation provides the category and function of overall importance, the side navigation provides multi-level structure to receive and arrange site architecture.
+
+# Code demo
 
 ## At the top of the navigation
 
@@ -36,7 +37,7 @@ const MenuExample = () => {
     >
       <MenuItem>cool link</MenuItem>
       <MenuItem disabled>cool link 2</MenuItem>
-      <SubMenu title="drop down options">
+      <SubMenu title="Click the drop-down options">
         <MenuItem>The drop-down options 1</MenuItem>
         <MenuItem>The drop-down option 2</MenuItem>
       </SubMenu>
@@ -47,11 +48,11 @@ const MenuExample = () => {
 export default MenuExample;
 ```
 
-## SubMenu
+## The built-in menu
 
 ```tsx
 /**
- * title: SubMenu
+ * title: The built-in menu
  * desc: Vertical menu, submenu are embedded in the menu area.
  */
 import React from 'react';
@@ -98,4 +99,4 @@ const MenuExample = () => {
 export default MenuExample;
 ```
 
-<API  src='./index.tsx'></API>
+<API  src='./Menu.tsx'></API>

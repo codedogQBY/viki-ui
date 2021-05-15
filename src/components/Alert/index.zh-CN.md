@@ -2,7 +2,7 @@
 category: Components
 subtitle: 警告提示
 type: 反馈
-title: Alert
+title: Alert 警告提示
 ---
 
 # Alert 警告提示

@@ -2,7 +2,7 @@
 category: Components
 cols: 1
 type: 数据展示
-title: Progress
+title: Progress 进度条
 subtitle: 进度条
 ---
 
