@@ -31,7 +31,7 @@
     "prettier": "prettier --write \"**/*.{js,jsx,tsx,ts,less,md,json}\"",
     "build-ts": "tsc -p tsconfig.build.json",
     "build-sass": "node-sass ./src/style/index.scss ./dist/index.css",
-    "test": "umi-test",
+    "test": "react-scripts test",
     "test:coverage": "umi-test --coverage",
     "prepublish": "npm run build"
   },

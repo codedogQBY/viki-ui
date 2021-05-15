@@ -2,13 +2,13 @@ import { defineConfig } from 'dumi';
 
 export default defineConfig({
   title: 'viki-ui',
-  favicon:
-    'https://user-images.githubusercontent.com/9554297/83762004-a0761b00-a6a9-11ea-83b4-9c8ff721d4b8.png',
-  logo:
-    'https://user-images.githubusercontent.com/9554297/83762004-a0761b00-a6a9-11ea-83b4-9c8ff721d4b8.png',
+  favicon: 'https://img-blog.csdnimg.cn/20210515162224660.png',
+  logo: 'https://img-blog.csdnimg.cn/20210515162224660.png',
   outputPath: 'docs-dist',
   mode: 'site',
-  // more config: https://d.umijs.org/config
+  theme: {
+    '@c-primary': '#0d6efd',
+  },
   sass: {
     implementation: require('node-sass'),
   },

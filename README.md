@@ -1,27 +1,27 @@
-# viki-ui
+# viki-ui of React
 
-## Getting Started
+`viki-ui` 是一个 React UI 组件库，主要用于研发学生级的中后台产品。
 
-Install dependencies,
+## ✨ 特性
 
-```bash
-$ npm i
-```
+🌈 提炼自学生级中后台产品。
 
-Start the dev server,
+📦 开箱即用的一般 React 组件。
 
-```bash
+🛡 使用 TypeScript 开发，提供完整的类型定义文件。
+
+🌍 提供双语支持。
+
+## 命令
+
+```shell
 $ npm start
 ```
 
-Build documentation,
-
-```bash
-$ npm run docs:build
+```shell
+$ npm build
 ```
 
-Build library via `father-build`,
-
-```bash
-$ npm run build
+```shell
+$ npm docs:build
 ```
