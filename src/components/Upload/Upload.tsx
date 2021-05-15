@@ -1,4 +1,5 @@
 import React, { useRef, ChangeEvent, useState } from 'react';
+import classNames from 'classnames';
 import axios from 'axios';
 import UploadList from './UploadList';
 import Dragger from './Dragger';
@@ -13,6 +14,10 @@ export interface UploadFile extends File {
    * 文件大小
    */
   size: number;
+  /**
+   * 文件类型
+   */
+  type: string;
   /**
    * 文件名字
    */
@@ -69,6 +74,9 @@ export interface UploadProps {
    * 是否支持多选
    */
   multiple?: boolean;
+  /**
+   * 是否支持拖拽
+   */
   drag?: boolean;
   /**
    * 上传文件之前的钩子，
@@ -98,10 +106,11 @@ export interface UploadProps {
    * 移出文件列表回调
    */
   onRemove?: (file: UploadFile) => boolean | Promise<UploadFile>;
+  style?: React.CSSProperties;
+  className?: string;
 }
 
-const Upload: React.FC<UploadProps &
-  React.HTMLProps<HTMLLIElement>> = props => {
+const Upload: React.FC<UploadProps> = props => {
   const {
     defaultFileList,
     action,
@@ -113,6 +122,7 @@ const Upload: React.FC<UploadProps &
     accept,
     multiple,
     drag,
+    className,
     children,
     beforeUpload,
     onProgress,
@@ -188,6 +198,7 @@ const Upload: React.FC<UploadProps &
     let _file: UploadFile = {
       ...file,
       uid: Date.now() + 'upload-file',
+      type: file.name.substr(file.name.lastIndexOf('.') + 1),
       status: 'ready',
       name: file.name,
       size: file.size,
@@ -240,7 +251,10 @@ const Upload: React.FC<UploadProps &
       });
   };
   return (
-    <div className="viki-upload-component" style={style}>
+    <div
+      className={classNames('viki-upload-component', className)}
+      style={style}
+    >
       <div className="viki-upload-input" onClick={handleClick}>
         {drag ? (
           <Dragger
