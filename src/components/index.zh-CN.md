@@ -1,8 +1,32 @@
----
-toc: menu
-nav:
-  title: 组件
-  order: 0
----
+# viki-ui of React
 
-`antd` 为 Web 应用提供了丰富的基础 UI 组件，我们还将持续探索企业级应用的最佳 UI 实践。除了官方组件，我们也提供了[社区精选组件](/docs/react/recommendation)作为必要的补充，另外如果您是内网用户，欢迎尝试使用 [TechUI](https://techui.alipay.com)。
+`viki-ui` 是一个 React UI 组件库，主要用于研发学生级的中后台产品。
+
+## ✨ 特性
+
+🌈 提炼自学生级中后台产品。
+
+📦 开箱即用的一般 React 组件。
+
+🛡 使用 TypeScript 开发，提供完整的类型定义文件。
+
+🌍 提供双语支持。
+
+## 版本
+
+- 测试版 0.1.6
+
+## 安装
+
+**使用 npm 或 yarn 安装**
+<br />
+<br />
+推荐使用 npm 或 yarn 的方式进行开发，不仅可在开发环境轻松调试，也可放心地在生产环境打包部署使用。
+
+```shell
+$ npm install viki-ui --save
+```
+
+```shell
+$ yarn viki-ui
+```
