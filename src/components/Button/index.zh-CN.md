@@ -27,19 +27,12 @@ import React from 'react';
 import { Button } from 'viki-ui';
 
 const ButtonExample = () => {
-  const btnStyle = {
-    margin: '0 10px',
-  };
   return (
     <>
-      <Button style={btnStyle} btnType="primary">
-        主要按钮
-      </Button>
-      <Button style={btnStyle}>默认按钮</Button>
-      <Button style={btnStyle} btnType="danger">
-        危险按钮
-      </Button>
-      <Button style={btnStyle} btnType="link" href="https://www.baidu.com">
+      <Button btnType="primary">主要按钮</Button>
+      <Button>默认按钮</Button>
+      <Button btnType="danger">危险按钮</Button>
+      <Button btnType="link" href="https://www.baidu.com">
         文字按钮
       </Button>
     </>
@@ -63,13 +56,11 @@ const ButtonExample = () => {
   };
   return (
     <>
-      <Button style={btnStyle} btnType="primary" size="lg">
+      <Button btnType="primary" size="lg">
         大按钮
       </Button>
-      <Button style={btnStyle} btnType="primary">
-        默认按钮
-      </Button>
-      <Button style={btnStyle} btnType="primary" size="sm">
+      <Button btnType="primary">默认按钮</Button>
+      <Button btnType="primary" size="sm">
         小按钮
       </Button>
     </>
