@@ -6,7 +6,7 @@ hero:
   desc: A simple UI component library
   actions:
     - text: Start
-      link: /components
+      link: /en-US/components
 features:
   - icon: https://img-blog.csdnimg.cn/20210515165515850.png
     title: Perfecting
