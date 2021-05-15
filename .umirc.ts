@@ -21,12 +21,20 @@ export default defineConfig({
     'en-US': [
       null, // null 值代表保留约定式生成的导航，只做增量配置
       {
+        title: 'Components',
+        path: '/components',
+      },
+      {
         title: 'GitHub',
         path: 'https://github.com/codedogQBY/viki-ui',
       },
     ],
     'zh-CN': [
       null, // null 值代表保留约定式生成的导航，只做增量配置
+      {
+        title: '组件',
+        path: '/components',
+      },
       {
         title: 'GitHub',
         path: 'https://github.com/codedogQBY/viki-ui',
