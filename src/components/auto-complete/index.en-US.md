@@ -45,7 +45,7 @@ const AutoCompleteExample = () => {
   };
   return (
     <>
-      <AutoComplete fetchSugestion={handleFetch} />
+      <AutoComplete fetchSuggestion={handleFetch} />
     </>
   );
 };
