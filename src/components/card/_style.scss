@@ -1,0 +1,53 @@
+$card-border-radius: $border-radius !default;
+$card-padding: 16px;
+$card-shadow: 2px 2px 12px #e7e4e4;
+.viki-card-box {
+  display: inline-block;
+  background: $white;
+  border-radius: $card-border-radius;
+  box-sizing: border-box;
+  color: $gray-900;
+  margin: 0;
+  padding: 0;
+  position: relative;
+  .viki-card-head {
+    box-sizing: border-box;
+    border-bottom: $gray-200 1px solid;
+    padding: $card-padding * 0.5 $card-padding;
+    &::after {
+      display: block;
+      content: '';
+      clear: both;
+    }
+  }
+  .viki-card-body {
+    padding: $card-padding;
+  }
+  .viki-card-foot {
+    box-sizing: border-box;
+    border-top: $gray-200 1px solid;
+    padding: $card-padding * 0.5 $card-padding;
+
+    &::after {
+      display: block;
+      content: '';
+      clear: both;
+    }
+  }
+}
+// 'always' | 'hover' | 'never'
+.viki-card-shadow-always {
+  box-shadow: $card-shadow;
+}
+.viki-card-shadow-hover {
+  box-shadow: none;
+  &:hover {
+    box-shadow: $card-shadow;
+  }
+}
+.viki-card-shadow-never {
+  box-shadow: none;
+}
+.viki-card-border {
+  border: $gray-200 1px solid;
+}

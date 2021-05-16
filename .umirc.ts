@@ -56,15 +56,15 @@ export default defineConfig({
       {
         title: '数据录入',
         children: [
-          'components/input',
           'components/auto-complete',
+          'components/input',
           'components/select',
           'components/upload',
         ],
       },
       {
         title: '数据展示',
-        children: ['components/tabs', 'components/progress'],
+        children: ['components/progress', 'components/tabs', 'components/card'],
       },
       {
         title: '反馈',
@@ -87,15 +87,15 @@ export default defineConfig({
       {
         title: 'Data Entry',
         children: [
-          'components/input',
           'components/auto-complete',
+          'components/input',
           'components/select',
           'components/upload',
         ],
       },
       {
         title: 'Data Display',
-        children: ['components/tabs', 'components/progress'],
+        children: ['components/progress', 'components/tabs', 'components/card'],
       },
       {
         title: 'Feedback',
