@@ -166,6 +166,8 @@ const Select: FC<SelectProps> & {
   };
   // 键盘事件
   const handleKeyDown = (e: KeyboardEvent<HTMLInputElement>) => {
+    e.stopPropagation();
+    e.preventDefault();
     switch (e.keyCode) {
       case 13: {
         // 按下回车键更新value值
