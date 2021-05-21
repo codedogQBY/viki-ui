@@ -11,11 +11,12 @@ interface UploadListProps {
 
 const UploadList: FC<UploadListProps> = props => {
   const { fileList, onRemove } = props;
-  const statusMap = new Map<string, { theme: ThemeProps; icon: IconName }>();
-  statusMap.set('ready', { theme: 'warning', icon: 'paper-plane' });
-  statusMap.set('uploading', { theme: 'primary', icon: 'spinner' });
-  statusMap.set('success', { theme: 'success', icon: 'check-circle' });
-  statusMap.set('fail', { theme: 'error', icon: 'times-circle' });
+  const statusMap = new Map<string, { theme: ThemeProps; icon: IconName }>([
+    ['ready', { theme: 'warning', icon: 'paper-plane' }],
+    ['uploading', { theme: 'primary', icon: 'spinner' }],
+    ['success', { theme: 'success', icon: 'check-circle' }],
+    ['fail', { theme: 'error', icon: 'times-circle' }],
+  ]);
 
   return (
     <ul className="viki-upload-list">
