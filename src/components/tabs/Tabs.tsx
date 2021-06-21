@@ -112,9 +112,9 @@ const Tabs: React.FC<TabsProps> & {
         tabsNavList.push({
           tab,
           key: index || i.toString(),
-          style,
-          disabled,
-          className,
+          style: style!,
+          disabled: Boolean(disabled),
+          className: className!,
         });
         tabsContent.push({ content: children, key: index || i.toString() });
       });
@@ -137,7 +137,7 @@ const Tabs: React.FC<TabsProps> & {
                 return (
                   <div
                     key={key}
-                    style={style}
+                    style={style ?? {}}
                     className={classes}
                     onClick={tabClick}
                   >
@@ -168,7 +168,7 @@ const Tabs: React.FC<TabsProps> & {
   };
 
   return (
-    <div className={classes} style={style}>
+    <div className={classes} style={style ?? {}}>
       {renderChildren()}
     </div>
   );

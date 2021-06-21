@@ -165,7 +165,7 @@ export const AutoComplete: FC<AutoCompleteProps> = props => {
     );
   };
   return (
-    <div className="viki-auto-complete" style={style} ref={componentRef}>
+    <div className="viki-auto-complete" style={style ?? {}} ref={componentRef}>
       <Input
         value={inputValue}
         {...restprops}

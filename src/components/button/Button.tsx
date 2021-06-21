@@ -53,10 +53,10 @@ const Button: React.FC<BaseButtonProps> = props => {
     return (
       <a
         className={classes}
-        href={href}
-        style={style}
+        href={href!}
+        style={style ?? {}}
         {...restProps}
-        onClick={onClick}
+        onClick={onClick!}
       >
         {children}
       </a>
@@ -65,9 +65,9 @@ const Button: React.FC<BaseButtonProps> = props => {
     return (
       <button
         className={classes}
-        disabled={disabled}
-        style={style}
-        onClick={onClick}
+        disabled={Boolean(disabled)}
+        style={style ?? {}}
+        onClick={onClick!}
         {...restProps}
       >
         {children}

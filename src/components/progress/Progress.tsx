@@ -105,14 +105,14 @@ const Progress: FC<ProgressProps & HTMLProps<HTMLElement>> = props => {
     }
   };
   return (
-    <div className="viki-progress-bar" style={style}>
+    <div className="viki-progress-bar" style={style ?? {}}>
       <div
         className="viki-progress-bar-outer"
         style={{ height: strokeHidth || (textOutside ? '8px' : '15px') }}
       >
         <div
           className={`viki-progress-bar-inner progress-color-${theme}`}
-          style={{ width: `${percent}%`, backgroundColor: bgColor }}
+          style={{ width: `${percent}%`, backgroundColor: bgColor! }}
         >
           {!textOutside && (
             <span className="inner-text">{showText && `${percent}%`}</span>
