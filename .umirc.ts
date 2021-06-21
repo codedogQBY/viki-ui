@@ -68,7 +68,7 @@ export default defineConfig({
       },
       {
         title: '反馈',
-        children: ['components/alert'],
+        children: ['components/alert', 'components/message'],
       },
     ],
     '/en-US/components': [
@@ -99,7 +99,7 @@ export default defineConfig({
       },
       {
         title: 'Feedback',
-        children: ['components/alert'],
+        children: ['components/alert', 'components/message'],
       },
     ],
   },

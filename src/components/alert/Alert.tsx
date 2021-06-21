@@ -6,7 +6,7 @@ type AlertType = 'success' | 'info' | 'warning' | 'error';
 
 interface BaseAlertProps {
   /**
-   * 指定警告提示的样式，有四种选择 `success`、`info`、`warning`、`error`
+   * 指定警告提示的样式，有四种选择 `success`、`info`、`warning`、`error`,默认是info
    * @description.en-US Specify the style of the warning, there are four choices `success`、`info`、`warning`、`error`
    */
   type?: AlertType;
@@ -60,7 +60,7 @@ const Alert: React.FC<BaseAlertProps> = (props): React.ReactElement => {
   return (
     <>
       {isShow ? (
-        <div className={classes} style={style}>
+        <div className={classes} style={style ?? {}}>
           <div className="viki-alert-content">
             <div className={messageClass}>{message}</div>
             {description ? (

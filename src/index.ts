@@ -14,3 +14,4 @@ export { default as Upload } from './components/upload/Upload';
 export { default as Progress } from './components/progress/Progress';
 export { default as Select } from './components/select/Select';
 export { default as Card } from './components/card/Card';
+export { default as message } from './components/message/messge';
