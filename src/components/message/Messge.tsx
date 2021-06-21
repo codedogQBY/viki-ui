@@ -104,7 +104,7 @@ class message {
 }
 
 message.getInstance = (function() {
-  let instance: (options: IOptions) => void | undefined;
+  let instance: (options: IOptions) => void;
   return function() {
     if (!instance) {
       const context = new message();
