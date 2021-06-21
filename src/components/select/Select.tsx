@@ -131,7 +131,7 @@ const Select: FC<SelectProps> & {
     selectValues,
     highlightIndex,
     selectIndex,
-    onChange,
+    onChange: onChange!,
   };
   // 更新数据
   const updateData = (value: string, index: string): void => {

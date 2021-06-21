@@ -253,7 +253,7 @@ const Upload: React.FC<UploadProps> = props => {
   return (
     <div
       className={classNames('viki-upload-component', className)}
-      style={style}
+      style={style ?? {}}
     >
       <div className="viki-upload-input" onClick={handleClick}>
         {drag ? (
@@ -273,8 +273,8 @@ const Upload: React.FC<UploadProps> = props => {
           style={{ display: 'none' }}
           onChange={handleFileChange}
           type="file"
-          accept={accept}
-          multiple={multiple}
+          accept={accept!}
+          multiple={multiple!}
         />
       </div>
       <UploadList fileList={fileList} onRemove={handleRemove} />

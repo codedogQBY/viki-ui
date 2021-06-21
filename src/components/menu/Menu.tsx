@@ -91,11 +91,11 @@ const Menu: React.FC<MenuProps> & {
   const passedContext: IMenuContext = {
     index: currentActive as string,
     onSelect: handleClick,
-    mode,
-    defaultOpenSubMenus,
+    mode: mode!,
+    defaultOpenSubMenus: defaultOpenSubMenus!,
   };
   return (
-    <ul className={classes} style={style} data-testid="test-menu">
+    <ul className={classes} style={style ?? {}} data-testid="test-menu">
       <MenuContext.Provider value={passedContext}>
         {renderChildren()}
       </MenuContext.Provider>

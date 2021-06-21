@@ -45,12 +45,12 @@ const PassWord: React.FC<PassWordProps> = props => {
     'viki-input-Icon': visibilityToggle,
   });
   return (
-    <span className={classes} style={style}>
+    <span className={classes} style={style ?? {}}>
       {prefix && <span className="viki-input-group-prefix">{prefix}</span>}
       <input
-        defaultValue={defaultValue}
+        defaultValue={defaultValue!}
         {...restprops}
-        disabled={disabled}
+        disabled={Boolean(disabled)}
         className="vike-password-input"
         type={visible ? 'password' : 'text'}
       ></input>

@@ -28,7 +28,7 @@ const MenuItem: React.FC<MenuItemProps> = props => {
     }
   };
   return (
-    <li className={classes} style={style} onClick={handleClick}>
+    <li className={classes} style={style ?? {}} onClick={handleClick}>
       {children}
     </li>
   );

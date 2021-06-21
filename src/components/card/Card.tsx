@@ -54,11 +54,11 @@ const Card: FC<CardProps> = props => {
     className,
   );
   return (
-    <div className={classes} style={style}>
+    <div className={classes} style={style ?? {}}>
       {head && <div className="viki-card-head">{head}</div>}
       <div
         className={classNames('viki-card-body', bodyClass)}
-        style={bodyStyle}
+        style={bodyStyle ?? {}}
       >
         {children}
       </div>
