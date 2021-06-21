@@ -237,15 +237,15 @@ const Select: FC<SelectProps> & {
     });
   };
   return (
-    <div className={classes} style={style} ref={selectRef}>
+    <div className={classes} style={style ?? {}} ref={selectRef}>
       <Input
-        disabled={disabled}
+        disabled={Boolean(disabled)}
         sufIcon="angle-down"
         value={multiple ? '' : selectValue}
-        size={size}
+        size={size!}
         readOnly
         onClick={() => setIsOpen(!isOpen)}
-        placeholder={placeholder}
+        placeholder={placeholder!}
         onKeyDown={handleKeyDown}
       />
       <Transition in={isOpen} animation="zoom-in-top" timeout={300}>

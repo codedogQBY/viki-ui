@@ -30,7 +30,7 @@ const Icon: React.FC<IconProps> = props => {
     [`icon-${theme}`]: theme,
   });
   return (
-    <span className={classes} style={style}>
+    <span className={classes} style={style ?? {}}>
       <FontAwesomeIcon {...restProps} />
     </span>
   );
