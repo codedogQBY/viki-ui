@@ -12,6 +12,8 @@
 
 🌍 提供双语支持。
 
+[https://viki.codedogs.top](文档地址)
+
 ## 命令
 
 ```shell
