@@ -12,7 +12,7 @@
 
 🌍 提供双语支持。
 
-[https://viki.codedogs.top](文档地址)
+[文档地址](https://viki.codedogs.top)
 
 ## 命令
 
